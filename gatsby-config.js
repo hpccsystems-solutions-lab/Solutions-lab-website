@@ -9,6 +9,7 @@ require('dotenv').config();
 const siteUrl = 'https://hpccsystems-solutions-lab.github.io/';
 
 module.exports = {
+  pathPrefix: `/hpccsystems-solutions-lab.github.io`,
   siteMetadata: {
     title: 'HPCCSystems Solutions Lab',
     sidebarTitle: 'HPCCSystems Solutions Lab',
