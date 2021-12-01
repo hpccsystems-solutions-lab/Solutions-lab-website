@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, withPrefix } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from '@reach/router';
 
@@ -21,6 +21,7 @@ import renderAst from 'utils/renderAst';
 import { DocsContribution } from 'components/docs/DocsContribution';
 import { BackToTopButton } from 'components/docs/BackToTopButton';
 
+import '../../static/tryButton.css'
 interface PageTemplateProps extends RouteComponentProps {
   data: {
     site: {
@@ -49,12 +50,14 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { prev, next } = markdownRemark.frontmatter;
   const prevPage = getPageById(sectionList.edges, prev);
   const nextPage = getPageById(sectionList.edges, next);
-  console.log(allFile);
-  console.log(markdownRemark.fields.slug);
+  
+  // console.log(allFile);
+  // console.log(markdownRemark.fields.slug,"SLUG");
   return (
     <IndexLayout>
       <Page docsPage>
         <Helmet>
+          <script src={withPrefix('OpenECLEditor.js')} type="text/javascript" />
           <meta name="description" content={markdownRemark.excerpt} />
           <meta property="og:title" content={markdownRemark.frontmatter.title} />
           <meta property="og:description" content={markdownRemark.excerpt} />
