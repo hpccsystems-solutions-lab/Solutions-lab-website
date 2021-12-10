@@ -21,7 +21,7 @@ import renderAst from 'utils/renderAst';
 import { DocsContribution } from 'components/docs/DocsContribution';
 import { BackToTopButton } from 'components/docs/BackToTopButton';
 
-import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousbtn';
+import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
 import '../../static/tryButton.css'
 
 interface PageTemplateProps extends RouteComponentProps {
