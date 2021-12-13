@@ -69,6 +69,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
  
   const findNextPrevious = (nodeList,currentPagePath) => {
   let index = nodeList.findIndex((element)=> element.slug == currentPagePath)
+  // console.log("nodeList is " + nodeList)
   // console.log("index is " + index)
   if( index == 0 ){
  // if it's was the first index then has no previos 
@@ -77,7 +78,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
  // if it's the last index of array there is no next 
    return { next : null, previous : nodeList[index-1].slug }
   } else{
-   return { next : nodeList[index + 1].slug , previous : nodeList[index-1].slug } 
+   return { next : nodeList[index + 1]?.slug , previous : nodeList[index-1]?.slug }
   }
 }
 
@@ -87,7 +88,15 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   let fixedUrl = hpcclessURL.substring(0,hpcclessURL.length-1)
   navigate(`${BASE_GITHUB_URL}${fixedUrl}.md`)
  }
-let url = window.location.pathname
+let slug = markdownRemark.fields.slug
+let url = slug.substring(0,slug.length-1)
+setTimeout(()=>{console.log(url)},1000)
+
+// console.log('url is:',url)
+// url: /hpcc/LearnECL/MainConcepts/filter
+
+// console.log('slug is:',slug)
+// slug: /hpcc/LearnECL/MainConcepts/filter/
 
 // console.log("url is " +  url)
 
