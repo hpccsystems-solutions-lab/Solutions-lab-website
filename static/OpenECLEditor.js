@@ -1,7 +1,7 @@
 function OpenECLEditor(codeList, files) {
     var form = document.createElement("form");
     form.setAttribute("method", "post");
-    form.setAttribute("action", "https://hpcc-ecl-web-editor.vercel.app/");
+    form.setAttribute("action", "https://hpcc-ecl-web-editor.azurewebsites.net/");
     form.setAttribute("target", "ecl_web_editor");
 
     let code = "";
