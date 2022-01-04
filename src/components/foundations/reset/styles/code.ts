@@ -11,12 +11,11 @@ const code = css`
     Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 
   */
-  code[class*='language-'],
+ 
+
+   
   pre[class*='language-'] {
-    font-family: Consolas, Menlo, Monaco, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
-      'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', Courier,
-      monospace;
-    font-size: ${textSizes[300].fontSize}px;
+   
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
@@ -30,15 +29,23 @@ const code = css`
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    background: ${colors.grey01};
+    background:#E7E9EB;
     color: ${colors.grey07};
+    border-left-style: solid;
+    border-color:#4CAF50;
   }
+
+ 
 
   /* Code blocks */
   pre[class*='language-'] {
-    padding: 1em;
+    padding: 1.2em;
     margin: 0.5em 0;
     overflow: auto;
+    font-size:16px;
+    font-family :  Arial, sans-serif;
+    border-radius: 10px;
+  
   }
 
   /* Inline code */
@@ -171,3 +178,4 @@ const code = css`
 `;
 
 export default code;
+ 
