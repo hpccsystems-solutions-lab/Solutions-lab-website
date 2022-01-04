@@ -10,6 +10,7 @@ import { isActive } from 'utils/helpers';
 interface NavigationMenuProps {
   node: MenuNode;
   menuKey: string;
+  dark:boolean;
 }
 
 interface ToggleableProps {
@@ -22,8 +23,11 @@ const ToggleMenu = styled('ul')<ToggleableProps>`
   padding: 0;
   transition: all 0.3s ease;
 `;
+interface ToggleMenuListProps{
+  dark?:boolean;
+}
 
-const ToggleMenuList = styled('li')`
+const ToggleMenuList = styled('li')<ToggleMenuListProps>`
   margin: 0;
   font-size: 85%;
   color: ${colors.grey07};
@@ -33,7 +37,7 @@ const ToggleMenuList = styled('li')`
     padding: ${space.xs}px;
     border: 2px solid transparent;
     border-radius: 2px;
-    color: ${colors.grey07};
+    color: ${props => props.dark? colors.white : colors.grey07};
 
     &:hover,
     &:focus {
@@ -57,15 +61,16 @@ const ToggleMenuList = styled('li')`
   }
 `;
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({ node }) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ node , dark }) => {
+
   return (
     <Box mb="xl">
       <Heading as="h3" size={100} color="grey04" mb="sm">        
         {node.title}        
       </Heading>
       <ToggleMenu>
-        {node.items.map(item => (
-          <ToggleMenuList key={item.id}>
+        { node.items.map(item => (
+          <ToggleMenuList key={item.id} dark={dark}>
             <Link to={item.slug} getProps={isActive()}>
               {item.title}
             </Link>

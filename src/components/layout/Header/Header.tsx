@@ -6,6 +6,7 @@ interface HeaderProps {
   navigation?: boolean;
   absolute?: boolean;
   fixed?: boolean;
+  darkmode?:boolean
 }
 
 const Wrapper = styled('header')<HeaderProps>`
@@ -17,12 +18,13 @@ const Wrapper = styled('header')<HeaderProps>`
   width: 100%;
   height: ${dimensions.heights.header}px;
   padding: 0;
+  background-color: ${props => (props.darkmode? (props.navigation ? "#222221" : "#222221") :(props.navigation ? colors.grey01 : colors.white))};
   background-color: ${props => (props.navigation ? colors.grey01 : colors.white)};
   z-index: ${layerIndexes.stickyNav};
 `;
 
-const Header: React.SFC<HeaderProps> = ({ children, absolute, fixed, navigation }) => (
-  <Wrapper absolute={absolute} fixed={fixed} navigation={navigation}>
+const Header: React.SFC<HeaderProps> = ({ children, absolute, fixed, navigation , darkmode }) => (
+  <Wrapper absolute={absolute} fixed={fixed} navigation={navigation} darkmode ={darkmode}>
     {children}
   </Wrapper>
 );

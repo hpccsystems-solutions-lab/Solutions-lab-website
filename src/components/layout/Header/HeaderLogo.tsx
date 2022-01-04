@@ -3,6 +3,7 @@ import { dimensions, colors, breakpoints } from 'utils/variables';
 
 interface HeaderLogoProps {
   navHidden?: boolean;
+  dark?:boolean;
 }
 
 const hasSidebar = css`
@@ -14,6 +15,15 @@ const hasNoSidebar = css`
   border-bottom: 1px solid ${colors.grey02};
 `;
 
+const hasSidebarDark = css`
+  background-color: ${colors.black};
+`;
+
+const hasNoSidebarDark = css`
+  background-color: ${colors.black};
+  border-bottom: 1px solid ${colors.grey02};
+`;
+
 const HeaderLogo = styled('div')<HeaderLogoProps>`
   display: flex;
   align-items: center;
@@ -21,7 +31,7 @@ const HeaderLogo = styled('div')<HeaderLogoProps>`
   height: 100%;
   padding: 0 24px;
 
-  ${props => (props.navHidden ? hasNoSidebar : hasSidebar)}
+  ${props => props.dark?  (props.navHidden ? hasNoSidebarDark : hasSidebarDark) :(props.navHidden ? hasNoSidebar : hasSidebar)}
 
   @media (max-width: ${breakpoints.lg - 1}px) {
     display: none;

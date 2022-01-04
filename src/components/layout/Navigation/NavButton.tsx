@@ -6,7 +6,7 @@ type NavButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   height?: number;
   width?: number;
   fill?: string;
-  icon?: 'hamburger' | 'x';
+  icon?: 'hamburger' | 'dark' |'light'|'x' ;
 };
 
 const Root = styled('button')`
@@ -62,7 +62,25 @@ const NavButton: React.FC<NavButtonProps> = ({ height, width, fill, icon, childr
       </Root>
     );
   }
-
+  if(icon === "dark"){
+    return (
+      <Root {...rest}>
+        <VisuallyHidden>{children}</VisuallyHidden>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" viewBox="0 0 24 24" width="32px" height="34px"><path d="M 11 0 L 11 3 L 13 3 L 13 0 L 11 0 z M 4.2226562 2.8085938 L 2.8085938 4.2226562 L 4.9296875 6.34375 L 6.34375 4.9296875 L 4.2226562 2.8085938 z M 19.777344 2.8085938 L 17.65625 4.9296875 L 19.070312 6.34375 L 21.191406 4.2226562 L 19.777344 2.8085938 z M 12 5 C 8.1458514 5 5 8.1458514 5 12 C 5 15.854149 8.1458514 19 12 19 C 15.854149 19 19 15.854149 19 12 C 19 8.1458514 15.854149 5 12 5 z M 12 7 C 14.773268 7 17 9.2267316 17 12 C 17 14.773268 14.773268 17 12 17 C 9.2267316 17 7 14.773268 7 12 C 7 9.2267316 9.2267316 7 12 7 z M 0 11 L 0 13 L 3 13 L 3 11 L 0 11 z M 21 11 L 21 13 L 24 13 L 24 11 L 21 11 z M 4.9296875 17.65625 L 2.8085938 19.777344 L 4.2226562 21.191406 L 6.34375 19.070312 L 4.9296875 17.65625 z M 19.070312 17.65625 L 17.65625 19.070312 L 19.777344 21.191406 L 21.191406 19.777344 L 19.070312 17.65625 z M 11 21 L 11 24 L 13 24 L 13 21 L 11 21 z"/></svg>
+      </Root>
+    );}
+      if(icon === "light"){
+      return (
+        <Root {...rest}>
+          <VisuallyHidden>{children}</VisuallyHidden>
+          <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <g id="Lager_94" data-name="Lager 94" transform="translate(0)">
+        <path id="Path_70" data-name="Path 70" d="M12.516,4.509A12,12,0,0,0,22.3,19.881,12.317,12.317,0,0,0,24,20a11.984,11.984,0,0,0,3.49-.514,12.1,12.1,0,0,1-9.963,8.421A12.679,12.679,0,0,1,16,28,12,12,0,0,1,12.516,4.509M16,0a16.5,16.5,0,0,0-2.212.15A16,16,0,0,0,16,32a16.526,16.526,0,0,0,2.01-.123A16.04,16.04,0,0,0,31.85,18.212,16.516,16.516,0,0,0,32,15.944,1.957,1.957,0,0,0,30,14a2.046,2.046,0,0,0-1.23.413A7.942,7.942,0,0,1,24,16a8.35,8.35,0,0,1-1.15-.08,7.995,7.995,0,0,1-5.264-12.7A2.064,2.064,0,0,0,16.056,0Z" fill="#000000"/>
+      </g>
+    </svg>
+        </Root>
+      );
+  }
   return (
     <Root {...rest}>
       <VisuallyHidden>{children}</VisuallyHidden>

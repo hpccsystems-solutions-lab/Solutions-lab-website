@@ -1,20 +1,17 @@
-import React from 'react';
+import React , {useState} from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { WindowLocation } from '@reach/router';
 import { SkipNavLink } from '@reach/skip-nav';
-
 import { Header, HeaderInner, HeaderRight, HeaderLogo } from '../Header';
 import { NavButton } from '../Navigation';
 import { NavigationContext, NavigationActionTypes } from '../Navigation/NavigationContext';
 import { determineFontDimensions } from 'components/foundations';
-
 import { SiteMetadata } from 'interfaces/gatsby';
 import { breakpoints, colors, textSizes } from 'utils/variables';
 import { isActive } from 'utils/helpers';
 import { Edge, HeaderMenuItem } from 'interfaces/nodes';
-
 import logo from 'assets/images/hpccsystems-logo_0.png';
 import { ButtonStyles } from 'components/ui/Button';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -39,13 +36,17 @@ const LogoWrapper = styled('div')`
   margin: 0 24px;
 `;
 
-const DocumentationMenu = styled('nav')`
+interface DocumentationMenuProps  {
+darkmode?:boolean;
+}
+
+const DocumentationMenu = styled('nav')<DocumentationMenuProps>`
   display: flex;
   flex-direction: row;
-
+ 
   a {
     padding: 8px 0;
-    color: ${colors.grey07};
+    color: ${props=> (props.darkmode? colors.white :colors.grey07)};
     font-size: ${textSizes[300].fontSize}px;
     line-height: ${textSizes[300].lineHeight}px;
     font-weight: 600;
@@ -104,6 +105,7 @@ interface LayoutRootProps {
   title: string;
   headerMenus?: Edge<HeaderMenuItem>[];
   navHidden?: boolean;
+  sendData?:any
 }
 
 interface DataProps {
@@ -112,12 +114,40 @@ interface DataProps {
   };
 }
 
-const LayoutRoot: React.SFC<LayoutRootProps> = ({ children, className, location, title, headerMenus, navHidden }) => {
+const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
+  const { children, className, location, title, headerMenus, navHidden } =  props 
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  let recentDarkState ;
+  if(typeof window !== 'undefined'){
+     recentDarkState = JSON.parse(localStorage.getItem("dark"))
+  }
+  
+  const [darkState,setDarkState] = useState(recentDarkState? recentDarkState : {dark:false})
   const { dispatch } = React.useContext(NavigationContext);
   const data: DataProps = useStaticQuery(query);
   const { siteMetadata } = data.site;
+  
+  const turnOnDarkMode = async () => {
+  const newstate = {dark : !darkState.dark}
+    await setDarkState(newstate)
+    await props.sendData(newstate)
+    
+  }
 
+  React.useEffect(() => {
+    if (darkState.dark) {
+      document.body.style.background = "black";
+      localStorage.setItem("dark",JSON.stringify(darkState))
+      var tables = document.getElementsByTagName("table");
+      for (var i = 0; i < tables.length; i++) {
+      tables.item(i).setAttribute("style",`background:White;`)
+     }
+    } else {
+      document.body.style.background = "white";
+      localStorage.setItem("dark",JSON.stringify(darkState))
+    }
+  }, [darkState]);
+  const darkmode = darkState.dark
   return (
     <StyledLayoutRoot className={className}>
       <Helmet>
@@ -125,15 +155,15 @@ const LayoutRoot: React.SFC<LayoutRootProps> = ({ children, className, location,
         <meta name="description" content={siteMetadata.description} />
         <meta name="keywords" content={siteMetadata.keywords} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={siteMetadata.title} />
+        <meta property="og:site_name" content={siteMetadata.title}/>
         <meta property="og:description" content={siteMetadata.description} />
         <meta property="og:url" content={`${siteMetadata.siteUrl}${location ? location.pathname : '/'}`} />
       </Helmet>
       <SkipNavLink />
 
-      <Header fixed>
+      <Header fixed darkmode={darkmode} >
         <HeaderInner>
-          <HeaderLogo navHidden={navHidden}>
+          <HeaderLogo navHidden={navHidden} dark={darkState.dark}>
             <HomepageLink
               to="/"
               size={determineFontDimensions('heading', 400)}
@@ -168,7 +198,7 @@ const LayoutRoot: React.SFC<LayoutRootProps> = ({ children, className, location,
             )}
           </HeaderRight>
           <HeaderRight hideOnMobile>
-            <DocumentationMenu>
+            <DocumentationMenu darkmode={darkState.dark}>
               {headerMenus &&
                 headerMenus.map(({ node }) => {
                   if (node.external) {
@@ -185,7 +215,7 @@ const LayoutRoot: React.SFC<LayoutRootProps> = ({ children, className, location,
                     </Link>
                   );
                 })}
-            </DocumentationMenu>
+            </DocumentationMenu >
             <DesktopHeaderRight>
               <SearchBox layout="desktop" />
               {/*<LoginButton
@@ -197,7 +227,12 @@ const LayoutRoot: React.SFC<LayoutRootProps> = ({ children, className, location,
               >
                 Login
               </LoginButton>*/}
-            </DesktopHeaderRight>
+            <NavButton
+              icon= {darkState.dark ?  "dark" : "light"} 
+              fill={colors.black}
+              onClick={() => turnOnDarkMode() }
+            />
+          </DesktopHeaderRight>
           </HeaderRight>
         </HeaderInner>
       </Header>

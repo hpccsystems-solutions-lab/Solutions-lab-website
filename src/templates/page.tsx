@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState}from 'react';
 import { graphql, withPrefix, navigate } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from '@reach/router';
@@ -19,7 +19,7 @@ import { TocWrapper } from 'components/docs/TableOfContents';
 import IndexLayout from 'layouts';
 import renderAst from 'utils/renderAst';
 import { BackToTopButton } from 'components/docs/BackToTopButton';
-
+import themeContext from '../utils/ThemeContext';
 import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
 import '../../static/tryButton.css'
 
@@ -125,6 +125,9 @@ if(url.includes("Tutorial")){
             />
           )}
           <Container>
+            <themeContext.Consumer>
+            {(Context) => Context.dark? <button>Dark</button>:<button>light</button>}
+            </themeContext.Consumer>
             <button style={{padding: '5px 20px', cursor: 'pointer',right:'0',position:'absolute'}} onClick={moveToGithub}>Edit</button>
             <DocsHeader title={markdownRemark.frontmatter.title} subtitle={markdownRemark.frontmatter.description} />
             <MarkdownContent>{renderAst(markdownRemark.htmlAst)}</MarkdownContent>
