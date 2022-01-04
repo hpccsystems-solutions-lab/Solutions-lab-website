@@ -18,7 +18,6 @@ import { Pagination } from 'components/ui/Pagination';
 import { TocWrapper } from 'components/docs/TableOfContents';
 import IndexLayout from 'layouts';
 import renderAst from 'utils/renderAst';
-import { DocsContribution } from 'components/docs/DocsContribution';
 import { BackToTopButton } from 'components/docs/BackToTopButton';
 
 import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
@@ -68,7 +67,14 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   }
  
   const findNextPrevious = (nodeList,currentPagePath) => {
-  let index = nodeList.findIndex((element)=> element.slug == currentPagePath)
+    // console.log(currentPagePath,"currentPagepath")
+    let index;
+   nodeList.forEach((element,ind)=> {
+    if(element.slug == currentPagePath ){
+      index = ind
+    }
+  // console.log(element.slug,"element.slug")
+  })
   // console.log("nodeList is " + nodeList)
   // console.log("index is " + index)
   if( index == 0 ){
@@ -83,25 +89,17 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
 }
 
   const moveToGithub = () => {
-  const BASE_GITHUB_URL ='https://github.com/hpccsystems-solutions-lab/Learn-ECL/blob/master'
+  const BASE_GITHUB_URL ='https://github.com/hpccsystems-solutions-lab/Learn-ECL/blob/NewFormat'
   let hpcclessURL = markdownRemark.fields.slug.replace('/hpcc', '')
   let fixedUrl = hpcclessURL.substring(0,hpcclessURL.length-1)
   navigate(`${BASE_GITHUB_URL}${fixedUrl}.md`)
  }
 let slug = markdownRemark.fields.slug
 let url = slug.substring(0,slug.length-1)
-setTimeout(()=>{console.log(url)},1000)
 
-// console.log('url is:',url)
-// url: /hpcc/LearnECL/MainConcepts/filter
-
-// console.log('slug is:',slug)
-// slug: /hpcc/LearnECL/MainConcepts/filter/
-
-// console.log("url is " +  url)
 
 let nextAndprevios = null
-if(url.includes("LearnECL")){
+if(url.includes("Tutorial")){
  let contents = makeContentMap(sectionList.edges);
 //  console.log(contents)
  nextAndprevios = findNextPrevious(contents,url)
@@ -132,8 +130,7 @@ if(url.includes("LearnECL")){
             <MarkdownContent>{renderAst(markdownRemark.htmlAst)}</MarkdownContent>
             <NextandPreviousBtn to ={nextAndprevios.next} variant="right">Next »</NextandPreviousBtn>
             <NextandPreviousBtn to ={nextAndprevios.previous} variant="left">« Previous</NextandPreviousBtn>
-            <DocsContribution edges={allFile.edges} slug={markdownRemark.fields.slug.replace('/hpcc', '')}/>
-            <FooterWrapper>
+           <FooterWrapper>
               <Footer
                 version={siteMetadata.version}
                 siteLastUpdated={siteMetadata.siteLastUpdated}

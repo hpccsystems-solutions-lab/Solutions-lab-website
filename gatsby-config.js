@@ -133,10 +133,10 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
-        name: `LearnECL`,
+        name: `NewFormat`,
         remote: `https://github.com/hpccsystems-solutions-lab/Learn-ECL.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
-        branch: `master`,
+        branch: `NewFormat`,
         // Tailor which files get imported eg. import the docs folder from a codebase.
         patterns: `*.md`,
         local: `${__dirname}/docs/hpcc`
