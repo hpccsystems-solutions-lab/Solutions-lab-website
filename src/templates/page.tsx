@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { makeZoombtns } from '../utils/PlusandNegativeCreator';
 import { graphql, withPrefix, navigate } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from '@reach/router';
@@ -52,6 +54,9 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { markdownRemark, sectionList, site, allFile } = data;
   const { siteMetadata } = site;
 
+  useEffect(() => {  
+    makeZoombtns()
+  })
   // console.log(markdownRemark.fields.slug.replace('/hpcc', ''))
   // console.log(sectionList.edges,"id Object")
 
