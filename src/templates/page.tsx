@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React , {useState}from 'react';
 import { makeZoombtns } from '../utils/PlusandNegativeCreator';
 import { graphql, withPrefix, navigate } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -21,7 +20,7 @@ import { TocWrapper } from 'components/docs/TableOfContents';
 import IndexLayout from 'layouts';
 import renderAst from 'utils/renderAst';
 import { BackToTopButton } from 'components/docs/BackToTopButton';
-
+import themeContext from '../utils/ThemeContext';
 import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
 import '../../static/tryButton.css'
 

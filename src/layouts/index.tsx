@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import { WindowLocation } from '@reach/router';
-
+import themeContext from '../utils/ThemeContext';
 import { AksaraReset } from 'components/foundations';
 import { LayoutRoot } from 'components/layout/LayoutRoot';
 import { LayoutMain } from 'components/layout/LayoutMain';
@@ -18,6 +18,7 @@ import { NavigationContextProvider } from 'components/layout/Navigation/Navigati
 interface IndexLayoutProps {
   location?: WindowLocation;
   navHidden?: boolean;
+  sendDarkData?:any;
 }
 
 interface DataProps {
@@ -35,15 +36,22 @@ interface DataProps {
 const IndexLayout: React.FC<IndexLayoutProps> = ({ location, children, navHidden }) => {
   const { site, headerMenus, navigationMenus }: DataProps = useStaticQuery(query);
   const { siteMetadata } = site;
-
+  let recentDarkState 
+  if(typeof window !== 'undefined'){
+    recentDarkState = JSON.parse(localStorage.getItem("dark"))
+ }
+  const  [stateDark,setDarkstate]= useState(recentDarkState? recentDarkState : {dark:false})
+  
   return (
     <NavigationContextProvider>
       <AksaraReset>
+       <themeContext.Provider value={stateDark} >
         <LayoutRoot
           title={siteMetadata.sidebarTitle || siteMetadata.title}
           headerMenus={headerMenus.edges}
           navHidden={navHidden}
-        >
+          sendData={(v)=>setDarkstate(v)}
+         >
           <Helmet>
             <title>{siteMetadata.title}</title>
             <meta name="description" content={siteMetadata.description} />
@@ -59,9 +67,11 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ location, children, navHidden
             navigation={navigationMenus.edges}
             headerMenus={headerMenus.edges}
             navHidden={navHidden}
+            darkmode = {stateDark.dark}
           />
           <LayoutMain navHidden={navHidden}>{children}</LayoutMain>
         </LayoutRoot>
+        </themeContext.Provider>
       </AksaraReset>
     </NavigationContextProvider>
   );

@@ -15,13 +15,14 @@ import NavButton from './NavButton';
 
 interface ToggleableProps {
   isOpen?: boolean;
+  darkmode?:boolean;
 }
 
 const Wrapper = styled('aside')<ToggleableProps>`
   position: fixed;
   margin-top: ${dimensions.heights.header}px;
   transition: all 0.3s ease;
-  background-color: ${colors.white};
+  background-color: ${props => props.darkmode? colors.black : colors.white};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: ${layerIndexes.dialog};
   overflow-y: hidden;
@@ -52,7 +53,7 @@ const Wrapper = styled('aside')<ToggleableProps>`
     flex: 0 0 ${dimensions.widths.sidebar.lg}px;
     box-shadow: none;
     border-bottom: none;
-    background-color: ${colors.grey01};
+    background-color: ${props => props.darkmode ?  colors.black : colors.grey01
   }
 `;
 
@@ -76,8 +77,10 @@ const WrapperInner = styled('nav')<WrapperInnerProps>`
   ${props => props.hideOnMobile && HideOnMobile}
   ${props => props.hideOnDesktop && HideOnDesktop}
 `;
-
-const Header = styled('section')`
+interface HeaderProps {
+  darkmode?:boolean
+}
+const Header = styled('section')<HeaderProps>`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -86,7 +89,7 @@ const Header = styled('section')`
   width: 100%;
   height: ${dimensions.heights.header}px;
   padding: 0 24px;
-  background-color: ${colors.white};
+  background-color: ${props => props.darkmode? colors.black:colors.white};
   border-bottom: 1px solid ${colors.grey02};
   z-index: ${layerIndexes.stickyNav};
 
@@ -160,14 +163,15 @@ interface NavigationProps {
   navigation?: Edge<MenuNode>[];
   headerMenus?: Edge<HeaderMenuItem>[];
   navHidden?: boolean;
+  darkmode?:boolean
 }
 
-function Navigation({ navigation, headerMenus, navHidden }: NavigationProps) {
+function Navigation({ navigation, headerMenus, navHidden , darkmode }: NavigationProps) {
   const { state, dispatch } = React.useContext(NavigationContext);
 
   return (
-    <Wrapper isOpen={state.isOpen}>
-      <Header>
+    <Wrapper isOpen={state.isOpen} darkmode={darkmode}>
+      <Header darkmode={darkmode}>
         <HeaderInner hideOnDesktop>
           <Heading as="h1" size={400}>
             Menu
@@ -248,7 +252,7 @@ function Navigation({ navigation, headerMenus, navHidden }: NavigationProps) {
           </DocumentationMenu>
           <DocumentationNav onClick={() => dispatch({ type: NavigationActionTypes.TOGGLE_DRAWER })}>
             {navigation &&
-              navigation.map(({ node }) => <NavigationMenu key={node.title} menuKey={node.title} node={node} />)}
+              navigation.map(({ node }) => <NavigationMenu key={node.title} menuKey={node.title} node={node} dark = {darkmode} />)}
           </DocumentationNav>
         </WrapperInner>
       )}
