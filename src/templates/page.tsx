@@ -54,9 +54,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { markdownRemark, sectionList, site, allFile } = data;
   const { siteMetadata } = site;
 
-  useEffect(() => {  
-    makeZoombtns()
-  })
+  // useEffect(() => {  
+  //   makeZoombtns()
+  // })
+  
   // console.log(markdownRemark.fields.slug.replace('/hpcc', ''))
   // console.log(sectionList.edges,"id Object")
 
@@ -94,7 +95,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
 }
 
   const moveToGithub = () => {
-  const BASE_GITHUB_URL ='https://github.com/hpccsystems-solutions-lab/Learn-ECL/blob/NewFormat'
+  const BASE_GITHUB_URL ='https://github.com/hpccsystems-solutions-lab/Learn-ECL/blob/master'
   let hpcclessURL = markdownRemark.fields.slug.replace('/hpcc', '')
   let fixedUrl = hpcclessURL.substring(0,hpcclessURL.length-1)
   navigate(`${BASE_GITHUB_URL}${fixedUrl}.md`)
