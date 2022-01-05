@@ -125,9 +125,6 @@ if(url.includes("Tutorial")){
             />
           )}
           <Container>
-            <themeContext.Consumer>
-            {(Context) => Context.dark? <button>Dark</button>:<button>light</button>}
-            </themeContext.Consumer>
             <button style={{padding: '5px 20px', cursor: 'pointer',right:'0',position:'absolute'}} onClick={moveToGithub}>Edit</button>
             <DocsHeader title={markdownRemark.frontmatter.title} subtitle={markdownRemark.frontmatter.description} />
             <MarkdownContent>{renderAst(markdownRemark.htmlAst)}</MarkdownContent>

@@ -19,7 +19,6 @@ const Wrapper = styled('header')<HeaderProps>`
   height: ${dimensions.heights.header}px;
   padding: 0;
   background-color: ${props => (props.darkmode? (props.navigation ? "#222221" : "#222221") :(props.navigation ? colors.grey01 : colors.white))};
-  background-color: ${props => (props.navigation ? colors.grey01 : colors.white)};
   z-index: ${layerIndexes.stickyNav};
 `;
 
