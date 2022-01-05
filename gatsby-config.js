@@ -133,7 +133,7 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
-        name: `LearnECL`,
+        name: `master`,
         remote: `https://github.com/hpccsystems-solutions-lab/Learn-ECL.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `master`,

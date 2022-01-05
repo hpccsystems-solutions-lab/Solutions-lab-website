@@ -7,13 +7,6 @@
     "external": false
   },
   {
-    "id": "resources",
-    "label": "Resources",
-    "href": "/hpcc/Resources/cheatSheet",
-    "exact": false,
-    "external": false
-  },
-  {
     "id": "aboutus",
     "label": "About Us",
     "href": "/hpcc/About",

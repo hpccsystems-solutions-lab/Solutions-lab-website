@@ -1,112 +1,95 @@
 [
   {
-    "title": "Main Concepts",
+    "title": "Tutorial",
     "items": [
       {
+        "id": "introduction",
+        "slug": "/hpcc/Tutorial/ECLSyntax/introduction",
+        "title": "Introduction"
+      },
+
+      {
+        "id": "output",
+        "slug": "/hpcc/Tutorial/ECLSyntax/output",
+        "title": "OUTPUT"
+      },
+      {
         "id": "dataset",
-        "slug": "/hpcc/LearnECL/MainConcepts/dataset",
-        "title": "Dataset"
+        "slug": "/hpcc/Tutorial/ECLSyntax/dataset",
+        "title": "DATASET"
+      },
+      {
+        "id": "record",
+        "slug": "/hpcc/Tutorial/ECLSyntax/record",
+        "title": "RECORD"
+      },
+      {
+        "id": "integer",
+        "slug": "/hpcc/Tutorial/ECLSyntax/integer",
+        "title": "INTEGER"
+      },
+      {
+        "id": "decimal",
+        "slug": "/hpcc/Tutorial/ECLSyntax/decimal",
+        "title": "DECIMAL"
+      },
+      {
+        "id": "real",
+        "slug": "/hpcc/Tutorial/ECLSyntax/real",
+        "title": "REAL"
+      },
+
+      {
+        "id": "string",
+        "slug": "/hpcc/Tutorial/ECLSyntax/string",
+        "title": "STRING"
+      },
+      {
+        "id": "boolean",
+        "slug": "/hpcc/Tutorial/ECLSyntax/boolean",
+        "title": "BOOLEAN"
+      },
+
+      {
+        "id": "sort",
+        "slug": "/hpcc/Tutorial/ECLSyntax/sort",
+        "title": "SORT"
       },
       {
         "id": "filter",
-        "slug": "/hpcc/LearnECL/MainConcepts/filter",
+        "slug": "/hpcc/Tutorial/ECLSyntax/filter",
         "title": "Filter"
-      },      
-      {
-        "id": "mathematics",
-        "slug": "/hpcc/LearnECL/MainConcepts/mathematics",
-        "title": "Mathematics"
       },
       {
-        "id": "output",
-        "slug": "/hpcc/LearnECL/MainConcepts/output",
-        "title": "Output"
+        "id": "dedup",
+        "slug": "/hpcc/Tutorial/ECLSyntax/dedup",
+        "title": "DEDUP"
       },
       {
-        "id": "recordstructure",
-        "slug": "/hpcc/LearnECL/MainConcepts/recordStructure",
-        "title": "RECORD Structure"
+        "id": "exists",
+        "slug": "/hpcc/Tutorial/ECLSyntax/exists",
+        "title": "EXISTS"
       },
       {
-        "id": "sort",
-        "slug": "/hpcc/LearnECL/MainConcepts/sort",
-        "title": "Sort"
+        "id": "choosen",
+        "slug": "/hpcc/Tutorial/ECLSyntax/choosen",
+        "title": "CHOOSEN"
       },
       {
-        "id": "codingBestPractices",
-        "slug": "/hpcc/LearnECL/MainConcepts/codingBestPractices",
-        "title": "Coding Best Practices"
+        "id": "sample",
+        "slug": "/hpcc/Tutorial/ECLSyntax/sample",
+        "title": "SAMPLE"
+      },
+      {
+        "id": "setof",
+        "slug": "/hpcc/Tutorial/ECLSyntax/setof",
+        "title": "SETOF"
+      },
+      {
+        "id": "set",
+        "slug": "/hpcc/Tutorial/ECLSyntax/set",
+        "title": "SET"
       }      
-    ]
-  },
-  {
-    "title": "Advanced Concepts",
-    "items": [
-      {
-        "id": "FUNCTION",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/function",
-        "title": "Function"
-      },
-      {
-        "id": "JOIN",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/join",
-        "title": "Join"
-      },
-      {
-        "id": "MODULE",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/module",
-        "title": "Module"
-      },
-      {
-        "id": "PROJECT",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/project",
-        "title": "Project"
-      },
-      {
-        "id": "TABLE",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/table",
-        "title": "Table"
-      },
-      {
-        "id": "TRANSFORM",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/transform",
-        "title": "Transform"
-      },
-      {
-        "id": "normalize",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/normalize",
-        "title": "Normalize"
-      },
-      {
-        "id": "denormalize",
-        "slug": "/hpcc/LearnECL/AdvanceConcepts/denormalize",
-        "title": "Denormalize"
-      }
-    ]
-  },
-  {
-    "title": "Operators",
-    "items": [
-      {
-        "id": "logicalOperators",
-        "slug": "/hpcc/LearnECL/Operators/logicalOperators",
-        "title": "Logical Operators"
-      }
-    ]
-  },
-  {
-    "title": "Parsing",
-    "items": [
-      {
-        "id": "NLP",
-        "slug": "/hpcc/LearnECL/Parsing/nlp",
-        "title": "NLP"
-      },
-      {
-        "id": "Text_Parsing",
-        "slug": "/hpcc/LearnECL/Parsing/textParsing",
-        "title": "Text Parsing"
-      }
     ]
   }
 ]
