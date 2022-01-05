@@ -12,14 +12,7 @@ const code = css`
 
   */
  
-<<<<<<< HEAD
   pre[class*='language-'] {
-=======
-
-   
-  pre[class*='language-'] {
-   
->>>>>>> source
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
