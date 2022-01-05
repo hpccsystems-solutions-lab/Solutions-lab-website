@@ -12,7 +12,14 @@ const code = css`
 
   */
  
+<<<<<<< HEAD
   pre[class*='language-'] {
+=======
+
+   
+  pre[class*='language-'] {
+   
+>>>>>>> source
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
@@ -31,6 +38,8 @@ const code = css`
     border-left-style: solid;
     border-color:#4CAF50;
   }
+
+ 
 
   /* Code blocks */
   pre[class*='language-'] {
