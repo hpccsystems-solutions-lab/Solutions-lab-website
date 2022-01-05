@@ -11,11 +11,8 @@ const code = css`
     Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 
   */
- 
 
-   
   pre[class*='language-'] {
-   
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
@@ -44,8 +41,7 @@ const code = css`
     overflow: auto;
     font-size:16px;
     font-family :  Arial, sans-serif;
-    border-radius: 10px;
-  
+    border-radius: 20px;
   }
 
   /* Inline code */

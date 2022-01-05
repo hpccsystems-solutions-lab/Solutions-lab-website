@@ -27,6 +27,11 @@ module.exports = {
     },
     socials: [
       {
+        name: 'ContactUS',
+        imgpath: 'icon-contact.svg',
+        url: 'mailto:hpcc-solutions-lab@lexisnexisrisk.com'
+      },
+      {
         name: 'Twitter',
         imgpath: 'icon-twitter.svg',
         url: 'https://twitter.com/hpccsystems'
@@ -133,10 +138,10 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
-        name: `NewFormat`,
+        name: `master`,
         remote: `https://github.com/hpccsystems-solutions-lab/Learn-ECL.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
-        branch: `NewFormat`,
+        branch: `master`,
         // Tailor which files get imported eg. import the docs folder from a codebase.
         patterns: `*.md`,
         local: `${__dirname}/docs/hpcc`

@@ -12,13 +12,14 @@ let btnStyle = {
     position:'absolute',
     right: props.variant=="right"?'0': null,
     borderRadius: '5px',
-    padding: '8px 20px',
+    padding: '6px 16px',
     border: 'none',
     display:'inline-block',
     fontSize: '16px',
     fontSeight: '400',
     lineSeight: '24px',
-    marginTop: '8px'
+    marginTop: '28px',
+    marginBottom: '28px'
 }
 
 const navigateTo = () => {
