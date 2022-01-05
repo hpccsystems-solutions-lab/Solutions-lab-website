@@ -14,7 +14,7 @@ interface FooterProps {
 }
 
 const Wrapper = styled('footer')`
-  padding-top: 24px;
+  padding-top: 30px;
   border-top: 1px solid ${colors.grey02};
 `;
 

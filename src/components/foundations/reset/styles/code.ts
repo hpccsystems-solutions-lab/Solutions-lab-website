@@ -12,10 +12,14 @@ const code = css`
 
   */
  
+<<<<<<< HEAD
+  pre[class*='language-'] {
+=======
 
    
   pre[class*='language-'] {
    
+>>>>>>> source
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
@@ -44,8 +48,7 @@ const code = css`
     overflow: auto;
     font-size:16px;
     font-family :  Arial, sans-serif;
-    border-radius: 10px;
-  
+    border-radius: 20px;
   }
 
   /* Inline code */

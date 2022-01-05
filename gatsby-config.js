@@ -27,6 +27,11 @@ module.exports = {
     },
     socials: [
       {
+        name: 'ContactUS',
+        imgpath: 'icon-contact.svg',
+        url: 'hpcc-solutions-lab@lexisnexisrisk.com'
+      },
+      {
         name: 'Twitter',
         imgpath: 'icon-twitter.svg',
         url: 'https://twitter.com/hpccsystems'
