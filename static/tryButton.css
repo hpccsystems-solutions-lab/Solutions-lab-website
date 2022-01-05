@@ -1,7 +1,9 @@
 .trybutton{
     color: black;
     background-color: #04AA6D;
+    margin-top: 0px;
     margin-bottom:10px;
+    border-radius: 7px;
     cursor:pointer;
     padding:5px 15px;text-decoration: none;
 }

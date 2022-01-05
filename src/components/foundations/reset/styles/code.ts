@@ -12,10 +12,7 @@ const code = css`
 
   */
  
-
-   
   pre[class*='language-'] {
-   
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
     text-align: left;
@@ -35,8 +32,6 @@ const code = css`
     border-color:#4CAF50;
   }
 
- 
-
   /* Code blocks */
   pre[class*='language-'] {
     padding: 1.2em;
@@ -44,8 +39,7 @@ const code = css`
     overflow: auto;
     font-size:16px;
     font-family :  Arial, sans-serif;
-    border-radius: 10px;
-  
+    border-radius: 20px;
   }
 
   /* Inline code */
