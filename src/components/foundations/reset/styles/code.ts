@@ -11,7 +11,7 @@ const code = css`
     Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 
   */
- 
+
   pre[class*='language-'] {
     line-height: ${textSizes[300].lineHeight}px;
     direction: ltr;
