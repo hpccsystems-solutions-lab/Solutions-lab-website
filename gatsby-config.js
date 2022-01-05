@@ -29,7 +29,7 @@ module.exports = {
       {
         name: 'ContactUS',
         imgpath: 'icon-contact.svg',
-        url: 'hpcc-solutions-lab@lexisnexisrisk.com'
+        url: 'mailto:hpcc-solutions-lab@lexisnexisrisk.com'
       },
       {
         name: 'Twitter',
