@@ -89,7 +89,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
  // if it's the last index of array there is no next 
    return { next : null, previous : nodeList[index-1].slug }
   } else{
-   return { next : nodeList[index + 1]?.slug , previous : noddeList[index-1]?.slug }
+   return { next : nodeList[index + 1]?.slug , previous : nodeList[index-1]?.slug }
   }
 }
 
