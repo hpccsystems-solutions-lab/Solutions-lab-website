@@ -19,7 +19,8 @@ let btnStyle = {
     fontSeight: '400',
     lineSeight: '24px',
     marginTop: '28px',
-    marginBottom: '28px'
+    marginBottom: '28px',
+    visibility: existance ? "visible":"hidden"
 }
 
 const navigateTo = () => {
