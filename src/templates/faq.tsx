@@ -73,39 +73,3 @@ const FAQTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
 };
 
 export default FAQTemplate;
-
-export const query = graphql`
-  query FAQTemplateQuery($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        sidebarTitle
-        sidebarSubtext
-        siteLastUpdated
-        description
-        version
-        siteUrl
-        keywords
-        author {
-          name
-          url
-          email
-        }
-        socials {
-          name
-          imgpath
-          url
-        }
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      htmlAst
-      excerpt
-      frontmatter {
-        id
-        title
-        description
-      }
-    }
-  }
-`;
