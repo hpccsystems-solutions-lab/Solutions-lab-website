@@ -10,7 +10,7 @@ public/
 
 # npm lockfile
 # since we use yarn, this can be ignored
-/package-lock.json
+# /package-lock.json
 
 # Logs
 logs
