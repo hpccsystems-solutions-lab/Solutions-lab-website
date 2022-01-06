@@ -1,4 +1,4 @@
-import React , {useState}from 'react';
+import React , {useState, useEffect}from 'react';
 import { makeZoombtns } from '../utils/PlusandNegativeCreator';
 import { graphql, withPrefix, navigate } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -23,6 +23,7 @@ import { BackToTopButton } from 'components/docs/BackToTopButton';
 import themeContext from '../utils/ThemeContext';
 import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
 import '../../static/tryButton.css'
+import { makeCopyBtn } from '../utils/copybottun';
 
 interface PageTemplateProps extends RouteComponentProps {
   data: {
@@ -53,9 +54,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { markdownRemark, sectionList, site, allFile } = data;
   const { siteMetadata } = site;
 
-  // useEffect(() => {  
-  //   makeZoombtns()
-  // })
+  useEffect(() => {  
+    // makeZoombtns()
+    makeCopyBtn()
+  })
   
   // console.log(markdownRemark.fields.slug.replace('/hpcc', ''))
   // console.log(sectionList.edges,"id Object")
