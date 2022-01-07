@@ -30,7 +30,7 @@ export const table = styled('table')`
   font-size: ${textSizes[400].fontSize}px;
   line-height: ${textSizes[400].lineHeight}px;
   border-collapse: collapse;
-
+  border-radius:5px;
   thead {
     border-bottom: 2px solid ${colors.grey02};
 
@@ -44,19 +44,16 @@ export const table = styled('table')`
       text-align: left;
       color: ${colors.grey09};
 
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &:last-child {
-        padding-right: 0;
-      }
+     
     }
   }
 
   tfoot {
+    border-radius:25px;
     tr {
+      border-radius:25px;
       td {
+        border-radius:25px;
         padding: ${space.xs}px ${space.sm}px;
         vertical-align: top;
         font-style: normal;
@@ -64,14 +61,6 @@ export const table = styled('table')`
         font-weight: 700;
         letter-spacing: -0.01em;
         text-transform: uppercase;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
       }
     }
   }
@@ -84,16 +73,16 @@ export const table = styled('table')`
         font-size: ${textSizes[400].fontSize}px;
         line-height: ${textSizes[400].lineHeight}px;
         color: ${colors.grey07};
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
+      }
+    }
+    tr:last-child {
+      td:last-child{
+        border-radius:0px 0px 25px 0px ;
+      }
+      td:first-child{
+        border-radius:0px 0px 0px 25px ;
       }
     }
   }
-  tr:nth-child(even) {background-color: #f2f2f2;}
+  tr:nth-child(even) {background-color: #f2f2f2; border-radius:25px }
 `;

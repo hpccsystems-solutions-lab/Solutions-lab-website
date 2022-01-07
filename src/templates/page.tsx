@@ -1,5 +1,6 @@
-import React , {useState, useEffect}from 'react';
+import React, {useState , useEffect} from 'react';
 import { makeZoombtns } from '../utils/PlusandNegativeCreator';
+import {makeCopyBtn} from '../utils/copybottun'
 import { graphql, withPrefix, navigate } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from '@reach/router';
@@ -23,7 +24,6 @@ import { BackToTopButton } from 'components/docs/BackToTopButton';
 import themeContext from '../utils/ThemeContext';
 import NextandPreviousBtn from '../components/ui/Button/components/NextandPreviousBtn';
 import '../../static/tryButton.css'
-import { makeCopyBtn } from '../utils/copybottun';
 
 interface PageTemplateProps extends RouteComponentProps {
   data: {
@@ -54,8 +54,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { markdownRemark, sectionList, site, allFile } = data;
   const { siteMetadata } = site;
 
-  useEffect(() => {  
-    // makeZoombtns()
+  useEffect(() => {
     makeCopyBtn()
   })
   
@@ -150,11 +149,15 @@ if(url.includes("Tutorial")){
             <NextandPreviousBtn to ={nextAndprevios.next} variant="right">Next »</NextandPreviousBtn>
             <NextandPreviousBtn to ={nextAndprevios.previous} variant="left">« Previous</NextandPreviousBtn>
            <FooterWrapper>
-              <Footer
+             <themeContext.Consumer>{(Context)=>
+             <Footer
                 version={siteMetadata.version}
                 siteLastUpdated={siteMetadata.siteLastUpdated}
                 socials={siteMetadata.socials}
-              />
+                darkmode={Context.dark}
+              />}
+             </themeContext.Consumer>
+              
             </FooterWrapper>
           </Container>
           <BackToTopButton href="#" />

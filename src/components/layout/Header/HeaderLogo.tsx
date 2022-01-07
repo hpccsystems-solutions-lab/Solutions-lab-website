@@ -16,11 +16,11 @@ const hasNoSidebar = css`
 `;
 
 const hasSidebarDark = css`
-  background-color: ${colors.black};
+  background-color: ${"#121212"};
 `;
 
 const hasNoSidebarDark = css`
-  background-color: ${colors.black};
+  background-color: ${"#121212"};
   border-bottom: 1px solid ${colors.grey02};
 `;
 

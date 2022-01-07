@@ -22,7 +22,7 @@ const Wrapper = styled('aside')<ToggleableProps>`
   position: fixed;
   margin-top: ${dimensions.heights.header}px;
   transition: all 0.3s ease;
-  background-color: ${props => props.darkmode? colors.black : colors.white};
+  background-color: ${props => props.darkmode? "#121212" : colors.white};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: ${layerIndexes.dialog};
   overflow-y: hidden;
@@ -53,7 +53,7 @@ const Wrapper = styled('aside')<ToggleableProps>`
     flex: 0 0 ${dimensions.widths.sidebar.lg}px;
     box-shadow: none;
     border-bottom: none;
-    background-color: ${props => props.darkmode ?  colors.black : colors.grey01
+    background-color: ${props => props.darkmode ?  "#121212" : colors.grey01
   }
 `;
 
@@ -89,7 +89,7 @@ const Header = styled('section')<HeaderProps>`
   width: 100%;
   height: ${dimensions.heights.header}px;
   padding: 0 24px;
-  background-color: ${props => props.darkmode? colors.black:colors.white};
+  background-color: ${props => props.darkmode? "#121212":colors.white};
   border-bottom: 1px solid ${colors.grey02};
   z-index: ${layerIndexes.stickyNav};
 
