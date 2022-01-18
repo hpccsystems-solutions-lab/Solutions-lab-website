@@ -89,7 +89,20 @@
         "id": "set",
         "slug": "/hpcc/Tutorial/ECLSyntax/set",
         "title": "SET"
-      }      
+      },
+	  {
+        "id": "project",
+        "slug": "/hpcc/Tutorial/ECLSyntax/project",
+        "title": "PROJECT"
+      },
+        "id": "join",
+        "slug": "/hpcc/Tutorial/ECLSyntax/join",
+        "title": "JOIN"
+      },
+        "id": "table",
+        "slug": "/hpcc/Tutorial/ECLSyntax/table",
+        "title": "TABLE"
+      }	  
     ]
   }
 ]
