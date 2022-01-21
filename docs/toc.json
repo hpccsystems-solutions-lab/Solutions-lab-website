@@ -91,6 +91,17 @@
         "title": "SET"
       },
       {
+        "id": "function",
+        "slug": "/hpcc/Tutorial/ECLSyntax/function",
+        "title": "FUNCTION"
+      },
+      {
+        "id": "module",
+        "slug": "/hpcc/Tutorial/ECLSyntax/module",
+        "title": "MODULE"
+      },
+
+      {
         "id": "transform",
         "slug": "/hpcc/Tutorial/ECLSyntax/transform",
         "title": "TRANSFORM"
