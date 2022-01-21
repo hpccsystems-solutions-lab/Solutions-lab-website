@@ -91,6 +91,11 @@
         "title": "SET"
       },
       {
+        "id": "transform",
+        "slug": "/hpcc/Tutorial/ECLSyntax/transform",
+        "title": "TRANSFORM"
+      },
+      {
         "id": "project",
         "slug": "/hpcc/Tutorial/ECLSyntax/project",
         "title": "PROJECT"
