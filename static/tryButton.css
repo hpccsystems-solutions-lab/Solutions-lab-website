@@ -1,9 +1,18 @@
 .trybutton{
-    color: black;
+    color: #000000;
     background-color: #04AA6D;
-    margin-top: 0px;
-    margin-bottom:10px;
-    border-radius: 7px;
+    border-radius: 2px;
     cursor:pointer;
-    padding:5px 15px;text-decoration: none;
+    padding:8px 15px;
+    font-weight: 700;
+    
+}
+
+.trybutton:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.trybutton:visited{
+    color: #FFFFFF;
 }

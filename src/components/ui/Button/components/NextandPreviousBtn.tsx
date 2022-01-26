@@ -1,38 +1,52 @@
 import React from 'react'
 import { navigate } from 'gatsby'
+import styled from 'styled-components'
+
+
 const NextandPreviousBtn = (props) => {
 //check for the existing next or previous 
 // check for the existing LEARN ECL  
-let existance = props.to !== null && props.to !== ""
+let existence = props.to !== null && props.to !== ""
 let path = props.to
 
 let btnStyle = {
-    backgroundColor: '#04AA6D',
-    color: 'black',
     position:'absolute',
     right: props.variant=="right"?'0': null,
-    borderRadius: '5px',
-    padding: '6px 16px',
-    border: 'none',
     display:'inline-block',
-    fontSize: '16px',
-    fontSeight: '400',
-    lineSeight: '24px',
-    marginTop: '28px',
-    marginBottom: '28px',
-    visibility: existance ? "visible":"hidden"
+    visibility: existence ? "visible":"hidden"
 }
 
 const navigateTo = () => {
-    if(existance){
+    if(existence){
     navigate(path)
     }
 }
     return (
-        <button style={btnStyle} onClick={navigateTo}>
-        {props.children}
-        </button>
+        <BtnWrapper>
+            <button style={btnStyle} onClick={navigateTo}>
+                {props.children}
+            </button>
+        </BtnWrapper>
+        
     )
 }
 
 export default NextandPreviousBtn
+
+const BtnWrapper = styled.div`
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+    button{
+        border-radius: 2px;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 8px 16px;
+        background: #04AA6D;
+        border: none;
+    }
+    &:hover button{
+        color: #FFFFFF !important;
+    }
+`
