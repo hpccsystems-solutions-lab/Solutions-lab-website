@@ -1,24 +1,27 @@
-import React , {useState} from 'react';
-import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import { WindowLocation } from '@reach/router';
-import { SkipNavLink } from '@reach/skip-nav';
-import { Header, HeaderInner, HeaderRight, HeaderLogo } from '../Header';
-import { NavButton } from '../Navigation';
-import { NavigationContext, NavigationActionTypes } from '../Navigation/NavigationContext';
-import { determineFontDimensions } from 'components/foundations';
-import { SiteMetadata } from 'interfaces/gatsby';
-import { breakpoints, colors, textSizes } from 'utils/variables';
-import { isActive } from 'utils/helpers';
-import { Edge, HeaderMenuItem } from 'interfaces/nodes';
-import logo from 'assets/images/hpccsystems-logo_0.png';
-import { ButtonStyles } from 'components/ui/Button';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import SearchBox from 'components/search/SearchBox';
-import SearchIcon from '../Header/SearchIcon';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { WindowLocation } from "@reach/router";
+import { SkipNavLink } from "@reach/skip-nav";
+import { Header, HeaderInner, HeaderRight, HeaderLogo } from "../Header";
+import { NavButton } from "../Navigation";
+import {
+  NavigationContext,
+  NavigationActionTypes,
+} from "../Navigation/NavigationContext";
+import { determineFontDimensions } from "components/foundations";
+import { SiteMetadata } from "interfaces/gatsby";
+import { breakpoints, colors, textSizes } from "utils/variables";
+import { isActive } from "utils/helpers";
+import { Edge, HeaderMenuItem } from "interfaces/nodes";
+import logo from "assets/images/hpccsystems-logo_0.png";
+import { ButtonStyles } from "components/ui/Button";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import SearchBox from "components/search/SearchBox";
+import SearchIcon from "../Header/SearchIcon";
 
-const StyledLayoutRoot = styled('div')`
+const StyledLayoutRoot = styled("div")`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -26,9 +29,21 @@ const StyledLayoutRoot = styled('div')`
   @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
 `;
 
-const LogoWrapper = styled('div')`
+const LogoWrapper = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,17 +51,17 @@ const LogoWrapper = styled('div')`
   margin: 0 24px;
 `;
 
-interface DocumentationMenuProps  {
-darkmode?:boolean;
+interface DocumentationMenuProps {
+  darkmode?: boolean;
 }
 
-const DocumentationMenu = styled('nav')<DocumentationMenuProps>`
+const DocumentationMenu = styled("nav")<DocumentationMenuProps>`
   display: flex;
   flex-direction: row;
- 
+
   a {
     padding: 8px 0;
-    color: ${props=> (props.darkmode? colors.white :colors.grey07)};
+    color: ${(props) => (props.darkmode ? colors.white : colors.grey07)};
     font-size: ${textSizes[300].fontSize}px;
     line-height: ${textSizes[300].lineHeight}px;
     font-weight: 600;
@@ -67,9 +82,9 @@ const DocumentationMenu = styled('nav')<DocumentationMenuProps>`
 
 const HomepageLink = styled(Link)<FontSizeProps>`
   color: ${colors.grey09};
-  font-size: ${props => props.size.fontSize};
-  line-height: ${props => props.size.lineHeight};
-  font-weight: ${props => props.size.fontWeight};
+  font-size: ${(props) => props.size.fontSize};
+  line-height: ${(props) => props.size.lineHeight};
+  font-weight: ${(props) => props.size.fontWeight};
 
   &:hover,
   &:focus {
@@ -82,14 +97,14 @@ const LoginButton = styled(OutboundLink)`
   ${ButtonStyles}
 `;
 
-const UnstyledSearchButton = styled('button')`
+const UnstyledSearchButton = styled("button")`
   margin: 0;
   padding: 8px;
   background: none;
   border: none;
 `;
 
-const DesktopHeaderRight = styled('div')`
+const DesktopHeaderRight = styled("div")`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -105,7 +120,7 @@ interface LayoutRootProps {
   title: string;
   headerMenus?: Edge<HeaderMenuItem>[];
   navHidden?: boolean;
-  sendData?:any
+  sendData?: any;
 }
 
 interface DataProps {
@@ -115,39 +130,41 @@ interface DataProps {
 }
 
 const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
-  const { children, className, location, title, headerMenus, navHidden } =  props 
+  const { children, className, location, title, headerMenus, navHidden } =
+    props;
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
-  let recentDarkState ;
-  if(typeof window !== 'undefined'){
-     recentDarkState = JSON.parse(localStorage.getItem("dark"))
+  let recentDarkState;
+  if (typeof window !== "undefined") {
+    recentDarkState = JSON.parse(localStorage.getItem("dark"));
   }
-  
-  const [darkState,setDarkState] = useState(recentDarkState? recentDarkState : {dark:false})
+
+  const [darkState, setDarkState] = useState(
+    recentDarkState ? recentDarkState : { dark: false }
+  );
   const { dispatch } = React.useContext(NavigationContext);
   const data: DataProps = useStaticQuery(query);
   const { siteMetadata } = data.site;
-  
+
   const turnOnDarkMode = async () => {
-  const newstate = {dark : !darkState.dark}
-    await setDarkState(newstate)
-    await props.sendData(newstate)
-    
-  }
+    const newstate = { dark: !darkState.dark };
+    await setDarkState(newstate);
+    await props.sendData(newstate);
+  };
 
   React.useEffect(() => {
     if (darkState.dark) {
       document.body.style.background = "black";
-      localStorage.setItem("dark",JSON.stringify(darkState))
+      localStorage.setItem("dark", JSON.stringify(darkState));
       var tables = document.getElementsByTagName("table");
       for (var i = 0; i < tables.length; i++) {
-      tables.item(i).setAttribute("style",`background:White;`)
-     }
+        tables.item(i).setAttribute("style", `background:White;`);
+      }
     } else {
       document.body.style.background = "white";
-      localStorage.setItem("dark",JSON.stringify(darkState))
+      localStorage.setItem("dark", JSON.stringify(darkState));
     }
   }, [darkState]);
-  const darkmode = darkState.dark
+  const darkmode = darkState.dark;
   return (
     <StyledLayoutRoot className={className}>
       <Helmet>
@@ -155,19 +172,26 @@ const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
         <meta name="description" content={siteMetadata.description} />
         <meta name="keywords" content={siteMetadata.keywords} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={siteMetadata.title}/>
+        <meta property="og:site_name" content={siteMetadata.title} />
         <meta property="og:description" content={siteMetadata.description} />
-        <meta property="og:url" content={`${siteMetadata.siteUrl}${location ? location.pathname : '/'}`} />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${
+            location ? location.pathname : "/"
+          }`}
+        />
       </Helmet>
       <SkipNavLink />
 
-      <Header fixed darkmode={darkmode} >
+      <Header fixed darkmode={darkmode}>
         <HeaderInner>
           <HeaderLogo navHidden={navHidden} dark={darkState.dark}>
             <HomepageLink
               to="/"
-              size={determineFontDimensions('heading', 400)}
-              onClick={() => dispatch({ type: NavigationActionTypes.CLOSE_DRAWER })}
+              size={determineFontDimensions("heading", 400)}
+              onClick={() =>
+                dispatch({ type: NavigationActionTypes.CLOSE_DRAWER })
+              }
             >
               <img src={logo} alt={title} />
             </HomepageLink>
@@ -176,23 +200,32 @@ const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
             <NavButton
               icon="hamburger"
               fill={colors.grey05}
-              onClick={() => dispatch({ type: NavigationActionTypes.TOGGLE_DRAWER })}
+              onClick={() =>
+                dispatch({ type: NavigationActionTypes.TOGGLE_DRAWER })
+              }
             >
               Toggle Drawer
             </NavButton>
             <LogoWrapper>
               <HomepageLink
                 to="/"
-                size={determineFontDimensions('heading', 400)}
-                onClick={() => dispatch({ type: NavigationActionTypes.CLOSE_DRAWER })}
+                size={determineFontDimensions("heading", 400)}
+                onClick={() =>
+                  dispatch({ type: NavigationActionTypes.CLOSE_DRAWER })
+                }
               >
                 <img src={logo} alt={title} />
               </HomepageLink>
             </LogoWrapper>
             {isSearchOpen ? (
-              <SearchBox layout="mobile" onSearchClear={() => setIsSearchOpen(false)} />
+              <SearchBox
+                layout="mobile"
+                onSearchClear={() => setIsSearchOpen(false)}
+              />
             ) : (
-              <UnstyledSearchButton onClick={() => setIsSearchOpen(!isSearchOpen)}>
+              <UnstyledSearchButton
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+              >
                 <SearchIcon />
               </UnstyledSearchButton>
             )}
@@ -203,19 +236,28 @@ const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
                 headerMenus.map(({ node }) => {
                   if (node.external) {
                     return (
-                      <a key={node.id} href={node.href} target="_blank" rel="noopener noreferrer">
+                      <a
+                        key={node.id}
+                        href={node.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {node.label}
                       </a>
                     );
                   }
 
                   return (
-                    <Link key={node.id} getProps={isActive(node.exact)} to={node.href}>
+                    <Link
+                      key={node.id}
+                      getProps={isActive(node.exact)}
+                      to={node.href}
+                    >
                       {node.label}
                     </Link>
                   );
                 })}
-            </DocumentationMenu >
+            </DocumentationMenu>
             <DesktopHeaderRight>
               <SearchBox layout="desktop" />
               {/*<LoginButton
@@ -227,12 +269,12 @@ const LayoutRoot: React.SFC<LayoutRootProps> = (props) => {
               >
                 Login
               </LoginButton>*/}
-            <NavButton
-              icon= {darkState.dark ?  "dark" : "light"} 
-              fill={colors.black}
-              onClick={() => turnOnDarkMode() }
-            />
-          </DesktopHeaderRight>
+              <NavButton
+                icon={darkState.dark ? "dark" : "light"}
+                fill={colors.black}
+                onClick={() => turnOnDarkMode()}
+              />
+            </DesktopHeaderRight>
           </HeaderRight>
         </HeaderInner>
       </Header>
