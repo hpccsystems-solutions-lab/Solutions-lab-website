@@ -3,25 +3,29 @@
     "title": "Tutorial",
     "items": [
       {
-        "id": "introduction",
-        "slug": "/hpcc/Tutorial/ECLSyntax/introduction",
-        "title": "Introduction"
+        "id": "bigData",
+        "slug": "/hpcc/Tutorial/ECLSyntax/bigData",
+        "title": "Big Data"
       },
-
+      {
+        "id": "syntax",
+        "slug": "/hpcc/Tutorial/ECLSyntax/syntax",
+        "title": "Syntax"
+      },
       {
         "id": "output",
         "slug": "/hpcc/Tutorial/ECLSyntax/output",
         "title": "OUTPUT"
       },
       {
-        "id": "dataset",
-        "slug": "/hpcc/Tutorial/ECLSyntax/dataset",
-        "title": "DATASET"
-      },
-      {
         "id": "record",
         "slug": "/hpcc/Tutorial/ECLSyntax/record",
         "title": "RECORD"
+      },
+      {
+        "id": "dataset",
+        "slug": "/hpcc/Tutorial/ECLSyntax/dataset",
+        "title": "DATASET"
       },
       {
         "id": "integer",
