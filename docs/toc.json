@@ -98,11 +98,6 @@
         "title": "Choosen"
       },
       {
-        "id": "choos",
-        "slug": "/hpcc/Tutorial/ECLSyntax/choosen",
-        "title": "Choosen"
-      },
-      {
         "id": "topn",
         "slug": "/hpcc/Tutorial/ECLSyntax/topn",
         "title": "Topn"
