@@ -73,6 +73,11 @@
         "title": "If"
       },
       {
+      "id": "choose",
+      "slug": "/hpcc/Tutorial/ECLSyntax/choose",
+      "title": "Choose"
+      },
+      {
         "id": "map",
         "slug": "/hpcc/Tutorial/ECLSyntax/map",
         "title": "Map"
@@ -91,6 +96,16 @@
         "id": "choosen",
         "slug": "/hpcc/Tutorial/ECLSyntax/choosen",
         "title": "Choosen"
+      },
+      {
+        "id": "choos",
+        "slug": "/hpcc/Tutorial/ECLSyntax/choosen",
+        "title": "Choosen"
+      },
+      {
+        "id": "topn",
+        "slug": "/hpcc/Tutorial/ECLSyntax/topn",
+        "title": "Topn"
       },
       {
         "id": "sample",
@@ -128,6 +143,11 @@
         "title": "Module"
       },
       {
+        "id": "rows",
+        "slug": "/hpcc/Tutorial/ECLSyntax/rows",
+        "title": "Rows"
+      },
+      {
         "id": "join",
         "slug": "/hpcc/Tutorial/ECLSyntax/join",
         "title": "Join"
@@ -136,7 +156,19 @@
         "id": "table",
         "slug": "/hpcc/Tutorial/ECLSyntax/table",
         "title": "Table"
+      },
+      {
+        "id": "normalize",
+        "slug": "/hpcc/Tutorial/ECLSyntax/normalize",
+        "title": "Normalize"
+      },
+      {
+        "id": "denormalize",
+        "slug": "/hpcc/Tutorial/ECLSyntax/denormalize",
+        "title": "Denormalize"
       }	  
+
+  
     ]
   }
 ]
