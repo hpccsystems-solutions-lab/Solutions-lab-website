@@ -67,10 +67,16 @@
         "id": "filter",
         "slug": "/hpcc/Tutorial/ECLSyntax/filter",
         "title": "Filter"
-      },      {
+      },      
+      {
         "id": "if",
         "slug": "/hpcc/Tutorial/ECLSyntax/if",
         "title": "If"
+      },
+      {
+        "id": "between",
+        "slug": "/hpcc/Tutorial/ECLSyntax/between",
+        "title": "Between"
       },
       {
       "id": "choose",
