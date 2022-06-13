@@ -3,124 +3,173 @@
     "title": "Tutorial",
     "items": [
       {
-        "id": "introduction",
-        "slug": "/hpcc/Tutorial/ECLSyntax/introduction",
-        "title": "Introduction"
+        "id": "bigData",
+        "slug": "/hpcc/Tutorial/ECLSyntax/bigData",
+        "title": "Big Data"
       },
-
+      {
+        "id": "startHere",
+        "slug": "/hpcc/Tutorial/ECLSyntax/startHere",
+        "title": "Start Here"
+      },
+      {
+        "id": "syntax",
+        "slug": "/hpcc/Tutorial/ECLSyntax/syntax",
+        "title": "Syntax"
+      },
       {
         "id": "output",
         "slug": "/hpcc/Tutorial/ECLSyntax/output",
-        "title": "OUTPUT"
-      },
-      {
-        "id": "dataset",
-        "slug": "/hpcc/Tutorial/ECLSyntax/dataset",
-        "title": "DATASET"
-      },
-      {
-        "id": "record",
-        "slug": "/hpcc/Tutorial/ECLSyntax/record",
-        "title": "RECORD"
+        "title": "Output"
       },
       {
         "id": "integer",
         "slug": "/hpcc/Tutorial/ECLSyntax/integer",
-        "title": "INTEGER"
+        "title": "Integer"
       },
       {
         "id": "decimal",
         "slug": "/hpcc/Tutorial/ECLSyntax/decimal",
-        "title": "DECIMAL"
+        "title": "Decimal"
       },
       {
         "id": "real",
         "slug": "/hpcc/Tutorial/ECLSyntax/real",
-        "title": "REAL"
+        "title": "Real"
       },
 
       {
         "id": "string",
         "slug": "/hpcc/Tutorial/ECLSyntax/string",
-        "title": "STRING"
+        "title": "String"
       },
       {
         "id": "boolean",
         "slug": "/hpcc/Tutorial/ECLSyntax/boolean",
-        "title": "BOOLEAN"
+        "title": "Boolean"
       },
-
+      {
+        "id": "record",
+        "slug": "/hpcc/Tutorial/ECLSyntax/record",
+        "title": "Record"
+      },
+      {
+        "id": "dataset",
+        "slug": "/hpcc/Tutorial/ECLSyntax/dataset",
+        "title": "Dataset"
+      },
       {
         "id": "sort",
         "slug": "/hpcc/Tutorial/ECLSyntax/sort",
-        "title": "SORT"
+        "title": "Sort"
       },
       {
         "id": "filter",
         "slug": "/hpcc/Tutorial/ECLSyntax/filter",
         "title": "Filter"
+      },      
+      {
+        "id": "if",
+        "slug": "/hpcc/Tutorial/ECLSyntax/if",
+        "title": "If"
+      },
+      {
+        "id": "between",
+        "slug": "/hpcc/Tutorial/ECLSyntax/between",
+        "title": "Between"
+      },
+      {
+      "id": "choose",
+      "slug": "/hpcc/Tutorial/ECLSyntax/choose",
+      "title": "Choose"
+      },
+      {
+        "id": "map",
+        "slug": "/hpcc/Tutorial/ECLSyntax/map",
+        "title": "Map"
       },
       {
         "id": "dedup",
         "slug": "/hpcc/Tutorial/ECLSyntax/dedup",
-        "title": "DEDUP"
+        "title": "Dedup"
       },
       {
         "id": "exists",
         "slug": "/hpcc/Tutorial/ECLSyntax/exists",
-        "title": "EXISTS"
+        "title": "Exists"
       },
       {
         "id": "choosen",
         "slug": "/hpcc/Tutorial/ECLSyntax/choosen",
-        "title": "CHOOSEN"
+        "title": "Choosen"
+      },
+      {
+        "id": "topn",
+        "slug": "/hpcc/Tutorial/ECLSyntax/topn",
+        "title": "Topn"
       },
       {
         "id": "sample",
         "slug": "/hpcc/Tutorial/ECLSyntax/sample",
-        "title": "SAMPLE"
+        "title": "Sample"
       },
       {
         "id": "setof",
         "slug": "/hpcc/Tutorial/ECLSyntax/setof",
-        "title": "SETOF"
+        "title": "SetOf"
       },
       {
         "id": "set",
         "slug": "/hpcc/Tutorial/ECLSyntax/set",
-        "title": "SET"
+        "title": "Set"
       },
-      {
-        "id": "function",
-        "slug": "/hpcc/Tutorial/ECLSyntax/function",
-        "title": "FUNCTION"
-      },
-      {
-        "id": "module",
-        "slug": "/hpcc/Tutorial/ECLSyntax/module",
-        "title": "MODULE"
-      },
-
       {
         "id": "transform",
         "slug": "/hpcc/Tutorial/ECLSyntax/transform",
-        "title": "TRANSFORM"
+        "title": "Transform"
       },
       {
         "id": "project",
         "slug": "/hpcc/Tutorial/ECLSyntax/project",
-        "title": "PROJECT"
+        "title": "Project"
+      },
+      {
+        "id": "function",
+        "slug": "/hpcc/Tutorial/ECLSyntax/function",
+        "title": "Function"
+      },
+      {
+        "id": "module",
+        "slug": "/hpcc/Tutorial/ECLSyntax/module",
+        "title": "Module"
+      },
+      {
+        "id": "rows",
+        "slug": "/hpcc/Tutorial/ECLSyntax/rows",
+        "title": "Rows"
       },
       {
         "id": "join",
         "slug": "/hpcc/Tutorial/ECLSyntax/join",
-        "title": "JOIN"
+        "title": "Join"
       },
       {
         "id": "table",
         "slug": "/hpcc/Tutorial/ECLSyntax/table",
-        "title": "TABLE"
+        "title": "Table"
+      },
+      {
+        "id": "normalize",
+        "slug": "/hpcc/Tutorial/ECLSyntax/normalize",
+        "title": "Normalize"
+      },
+      {
+        "id": "denormalize",
+        "slug": "/hpcc/Tutorial/ECLSyntax/denormalize",
+        "title": "Denormalize"
       }	  
+
+  
     ]
   }
 ]

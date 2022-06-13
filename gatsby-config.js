@@ -147,7 +147,7 @@ module.exports = {
         local: `${__dirname}/docs/hpcc`
       }
     },    
-    {
+/*    {
       resolve: `gatsby-source-git`,
       options: {
         name: `CodeDay`,
@@ -158,7 +158,7 @@ module.exports = {
         patterns: `*.md`,
         local: `${__dirname}/docs/codeday`
       }
-    }
+    } */
 
   ]
 };
