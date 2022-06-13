@@ -1,13 +1,13 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { globalHistory } from "@reach/router"
 import { Link } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-
-import { MenuNode, Edge, HeaderMenuItem } from 'interfaces/nodes';
-import { Heading } from 'components/foundations';
-import { ButtonStyles } from 'components/ui/Button';
-import { colors, layerIndexes, breakpoints, dimensions, space } from 'utils/variables';
-import { isActive } from 'utils/helpers';
+import { MenuNode, Edge, HeaderMenuItem } from '../../../interfaces/nodes';
+import { Heading } from '../../../components/foundations';
+import { ButtonStyles } from '../../../components/ui/Button';
+import { colors, layerIndexes, breakpoints, dimensions, space } from '../../../utils/variables';
+import { isActive } from '../../../utils/helpers';
 
 import { NavigationContext, NavigationActionTypes } from './NavigationContext';
 import NavigationMenu from './NavigationMenu';
@@ -18,8 +18,8 @@ interface ToggleableProps {
   darkmode?:boolean;
 }
 
+const path = globalHistory.location.pathname
 const Wrapper = styled('aside')<ToggleableProps>`
-  position: fixed;
   margin-top: ${dimensions.heights.header}px;
   transition: all 0.3s ease;
   background-color: ${props => props.darkmode? "#121212" : colors.white};
@@ -53,7 +53,8 @@ const Wrapper = styled('aside')<ToggleableProps>`
     flex: 0 0 ${dimensions.widths.sidebar.lg}px;
     box-shadow: none;
     border-bottom: none;
-    background-color: ${props => props.darkmode ?  "#121212" : colors.grey01
+    background-color: ${props => props.darkmode ?  "#121212" : colors.grey01};
+    display: ${props => props.currentPath === '/' || props.currentPath === '/hpcc/About' ? "none" : "block" };
   }
 `;
 
@@ -166,11 +167,13 @@ interface NavigationProps {
   darkmode?:boolean
 }
 
-function Navigation({ navigation, headerMenus, navHidden , darkmode }: NavigationProps) {
+function Navigation({ navigation, headerMenus, navHidden , darkmode }: NavigationProps, ) {
   const { state, dispatch } = React.useContext(NavigationContext);
+  const path = globalHistory.location.pathname
+
 
   return (
-    <Wrapper isOpen={state.isOpen} darkmode={darkmode}>
+    <Wrapper isOpen={state.isOpen} darkmode={darkmode} currentPath={path}>
       <Header darkmode={darkmode}>
         <HeaderInner hideOnDesktop>
           <Heading as="h1" size={400}>

@@ -49,11 +49,11 @@ export const table = styled('table')`
   }
 
   tfoot {
-    border-radius:25px;
+    /* border-radius:25px; */
     tr {
-      border-radius:25px;
+      /* border-radius:25px; */
       td {
-        border-radius:25px;
+        /* border-radius:25px; */
         padding: ${space.xs}px ${space.sm}px;
         vertical-align: top;
         font-style: normal;
@@ -77,12 +77,12 @@ export const table = styled('table')`
     }
     tr:last-child {
       td:last-child{
-        border-radius:0px 0px 25px 0px ;
+        /* border-radius:0px 0px 25px 0px ; */
       }
       td:first-child{
-        border-radius:0px 0px 0px 25px ;
+        /* border-radius:0px 0px 0px 25px ; */
       }
     }
   }
-  tr:nth-child(even) {background-color: #f2f2f2; border-radius:25px }
+  tr:nth-child(even) {background-color: #f2f2f2; border-radius:5px }
 `;

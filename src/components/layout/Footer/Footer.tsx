@@ -17,6 +17,7 @@ interface FooterProps {
 const Wrapper = styled('footer')`
   padding-top: 30px;
   border-top: 1px solid ${colors.grey02};
+  bottom: 0;
 `;
 
 const Inner = styled('div')`
@@ -84,7 +85,6 @@ const FooterSection = styled('section')`
 
 const Footer: React.FC<FooterProps> = ({ version, siteLastUpdated, socials , darkmode }) => {
   const date = new Date(siteLastUpdated);
-  console.log(darkmode,"here")
   return (
     <Wrapper>
       <Inner>

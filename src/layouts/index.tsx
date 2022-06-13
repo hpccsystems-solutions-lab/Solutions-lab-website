@@ -3,17 +3,17 @@ import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import { WindowLocation } from '@reach/router';
 import themeContext from '../utils/ThemeContext';
-import { AksaraReset } from 'components/foundations';
-import { LayoutRoot } from 'components/layout/LayoutRoot';
-import { LayoutMain } from 'components/layout/LayoutMain';
-import { Navigation } from 'components/layout/Navigation';
-import { Overlay } from 'components/layout/Overlay';
+import { AksaraReset } from '../components/foundations';
+import { LayoutRoot } from '../components/layout/LayoutRoot';
+import { LayoutMain } from '../components/layout/LayoutMain';
+import { Navigation } from '../components/layout/Navigation';
+import { Overlay } from '../components/layout/Overlay';
 
-import { MenuNode, Edge, HeaderMenuItem } from 'interfaces/nodes';
-import { SiteMetadata } from 'interfaces/gatsby';
+import { MenuNode, Edge, HeaderMenuItem } from '../interfaces/nodes';
+import { SiteMetadata } from '../interfaces/gatsby';
 
 import 'typeface-barlow';
-import { NavigationContextProvider } from 'components/layout/Navigation/NavigationContext';
+import { NavigationContextProvider } from '../components/layout/Navigation/NavigationContext';
 
 interface IndexLayoutProps {
   location?: WindowLocation;
@@ -61,7 +61,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ location, children, navHidden
             <meta property="og:description" content={siteMetadata.description} />
             <meta property="og:url" content={`${siteMetadata.siteUrl}${location ? location.pathname : '/'}`} />
           </Helmet>
-          <Overlay />
+          {/* <Overlay /> */}
           <Navigation
             title={siteMetadata.sidebarTitle || siteMetadata.title}
             navigation={navigationMenus.edges}
@@ -69,7 +69,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ location, children, navHidden
             navHidden={navHidden}
             darkmode = {stateDark.dark}
           />
-          <LayoutMain navHidden={navHidden}>{children}</LayoutMain>
+             <LayoutMain  navHidden={navHidden} >{children}</LayoutMain>
         </LayoutRoot>
         </themeContext.Provider>
       </AksaraReset>
