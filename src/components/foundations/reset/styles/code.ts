@@ -41,7 +41,7 @@ const code = css`
     overflow: auto;
     font-size:16px;
     font-family :  Arial, sans-serif;
-    border-radius: 20px;
+    border-radius: 2px;
   }
 
   /* Inline code */

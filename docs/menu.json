@@ -2,7 +2,7 @@
   {
     "id": "docs",
     "label": "Learn ECL",
-    "href": "/",
+    "href": "/hpcc/Tutorial/ECLSyntax/bigData",
     "exact": true,
     "external": false
   },

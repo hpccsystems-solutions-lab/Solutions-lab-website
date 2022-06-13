@@ -5,7 +5,7 @@
     cursor:pointer;
     padding:8px 15px;
     font-weight: 700;
-    
+    margin-top: -200px;
 }
 
 .trybutton:hover{
@@ -13,6 +13,6 @@
     text-decoration: none;
 }
 
-.trybutton:visited{
+.trybutton:visited *{
     color: #FFFFFF;
 }

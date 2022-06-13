@@ -43,6 +43,7 @@ interface HomeTemplateProps extends RouteComponentProps {
 
 const HomepageIllustration = styled('img')`
   margin-bottom: ${space.xl}px;
+  width: 100%;
 `;
 
 const HomeTemplate: React.SFC<HomeTemplateProps> = ({ data }) => {
