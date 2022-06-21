@@ -24,11 +24,11 @@ const DocsWrapper = styled('article')<DocsWrapperProps>`
     margin-bottom: -30px;
   }
 
-  #ecl_data{
+  .ecl_data{
     display: none;
   }
 
-  #ecl_code{
+  .ecl_code{
     margin-top: -20px;
     margin-bottom: 0px;
     padding-bottom: -20px;;
