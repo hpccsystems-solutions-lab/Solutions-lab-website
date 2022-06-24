@@ -1,0 +1,3 @@
+[submodule 'docs/hpcc']
+    path = docs/hpcc
+    url = https://github.com/hpccsystems-solutions-lab/Learn-ECL.git
