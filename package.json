@@ -59,7 +59,7 @@
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-source-git": "^1.1.0",
     "gatsby-transformer-json": "^4.4.0",
-    "gatsby-transformer-remark": "^5.4.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.4.0",
     "gatsby-transformer-sqip": "^4.4.0",
     "lodash.isnil": "^4.0.0",
