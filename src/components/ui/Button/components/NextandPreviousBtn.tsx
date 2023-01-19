@@ -13,7 +13,9 @@ let btnStyle = {
     position:'absolute',
     right: props.variant=="right"?'0': null,
     display:'inline-block',
-    visibility: existence ? "visible":"hidden"
+    cursor:'pointer',
+    visibility: existence ? "visible":"hidden",
+    
 }
 
 const navigateTo = () => {
