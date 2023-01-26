@@ -38,6 +38,7 @@
     "gatsby-plugin-canonical-urls": "^4.4.0",
     "gatsby-plugin-catch-links": "^4.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",
+    "gatsby-plugin-google-gtag": "^5.5.0",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^4.4.0",
     "gatsby-plugin-netlify": "^3.14.0",
