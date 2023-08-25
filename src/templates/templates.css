@@ -1,0 +1,49 @@
+.learnEclTutorialTemplate {
+  display: flex;
+}
+
+.eclTutorialTemplate__navigation {
+  position: fixed;
+  height: 98vh;
+  overflow: auto;
+  width: 160px;
+}
+
+.eclTutorialTemplate__content {
+  margin-left: 200px;
+  padding: 20px;
+  min-height: 100vh;
+  width: calc(100% - 160px);
+}
+
+.eclTutorialTemplate__navigation,
+.eclTutorialTemplate__content {
+  padding-top: 20px;
+}
+
+.eclTutorialTemplate_table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.eclTutorialTemplate_table * {
+  padding: 2px 5px;
+}
+
+.eclTutorialTemplate_h2 {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.eclTutorialTemplate_h3 {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+td,
+th {
+  border: 1px solid;
+  text-align: left;
+  padding: 8px;
+}

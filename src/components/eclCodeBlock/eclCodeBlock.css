@@ -1,0 +1,19 @@
+.eclCodeBlock {
+  position: relative;
+}
+
+.eclCodeBlock__copyBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.eclCodeBlock__copyBtn:hover {
+  opacity: 0.7;
+}
+
+.eclCodeBlock__codeBlock {
+  border-left: 5px solid var(--primary-blue) !important;
+}

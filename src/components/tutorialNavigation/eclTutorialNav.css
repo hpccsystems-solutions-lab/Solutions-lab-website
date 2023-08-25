@@ -1,0 +1,22 @@
+.eclTutorialNavigation {
+  padding-bottom: 50px;
+}
+.eclTutorialNavigation__item {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.eclTutorialNavigation__search {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 10px 0;
+  border: 1px solid var(--primary-gray) !important;
+  place-items: center;
+  padding: 5px;
+}
+
+.eclTutorialNavigation__search_placeholder {
+  color: var(--primary-gray);
+  font-weight: 700;
+  opacity: 0.5;
+}

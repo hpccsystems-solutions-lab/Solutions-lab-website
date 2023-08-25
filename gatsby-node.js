@@ -1,101 +1,24 @@
-'use strict';
+const path = require("path");
 
-const path = require('path');
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
 
-// Regex to parse date and title from the filename
-const BLOG_POST_SLUG_REGEX = /release-notes\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)$/;
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField, createRedirect } = actions;  
-
-  // Redirect old Release Notes page
-  createRedirect({
-    fromPath: '/overview/release-notes',
-    toPath: '/release-notes'
-  });
-
-  // Sometimes, optional fields tend to get not picked up by the GraphQL
-  // interpreter if not a single content uses it. Therefore, we're putting them
-  // through `createNodeField` so that the fields still exist and GraphQL won't
-  // trip up. An empty string is still required in replacement to `null`.
-
-  switch (node.internal.type) {
-    case 'MarkdownRemark': {
-      const { permalink, redirect_from, layout, date } = node.frontmatter;
-      const { relativePath } = getNode(node.parent);
-      console.log(relativePath);
-
-      let slug = permalink;
-
-      if (!slug && relativePath.includes('release-notes')) {
-        // Generate final path + graphql fields for blog posts
-        const match = BLOG_POST_SLUG_REGEX.exec(relativePath);
-        if (match) {
-          const year = match[1];
-          const month = match[2];
-          const day = match[3];
-
-          const pubDate = date
-            ? new Date(date)
-            : new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day));
-
-          // Blog posts are sorted by date and display the date in their header.
-          createNodeField({
-            node,
-            name: 'date',
-            value: pubDate.toJSON()
-          });
-        }
-      }
-
-      if (!slug) {
-        if (relativePath === 'index.md') {
-          // If we have homepage set in docs folder, use it.
-          slug = '/';
-        } else {
-          slug = `/${relativePath.replace('.md', '')}/`;
-        }
-      }
-
-      // Used to generate URL to view this content.
-      createNodeField({
-        node,
-        name: 'slug',
-        value: slug || ''
-      });
-
-      // Used to determine a page layout.
-      createNodeField({
-        node,
-        name: 'layout',
-        value: layout || ''
-      });
-
-      // Used by createPages() to register redirects.
-      createNodeField({
-        node,
-        name: 'redirect',
-        value: redirect_from ? JSON.stringify(redirect_from) : ''
-      });
-    }
-  }
-};
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-
-  // Used to detect and prevent duplicate redirects
-  const redirectToSlugMap = {};
-
-  const allMarkdown = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000) {
+  // GraphQL query to fetch all projects ===================================
+  const projectsResult = await graphql(`
+    query getProjectDetails {
+      allFile(filter: { sourceInstanceName: { eq: "project-md-files" } }) {
         edges {
           node {
-            fields {
-              layout
-              slug
-              redirect
+            id
+            childMarkdownRemark {
+              html
+              frontmatter {
+                title
+                shortDescription
+                link
+                gitHubRepo
+                imageName
+              }
             }
           }
         }
@@ -103,62 +26,86 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  if (allMarkdown.errors) {
-    console.error(allMarkdown.errors);
-    throw new Error(allMarkdown.errors);
+  //Project fetching- Handle Errors
+  if (projectsResult.errors) {
+    reporter.panicOnBuild("Error loading MDX result", projectsResult.errors);
   }
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug, layout, redirect } = node.fields;
+  // Path to project file template
+  const template = path.resolve("src/templates/ProjectDetailsTemplate.js");
+  const edges = projectsResult.data.allFile.edges;
+
+  //Create project pages
+  edges.forEach((edge) => {
+    const { gitHubRepo, link, title, imageName } = edge.node.childMarkdownRemark.frontmatter;
+    const html = edge.node.childMarkdownRemark.html;
+    createPage({
+      path: `/projects/${link}`,
+      component: template,
+      context: {
+        itemId: link,
+        repo: gitHubRepo,
+        projectTitle: title,
+        fullText: html,
+        imgName: imageName,
+      },
+    });
+  });
+
+  // GraphQL query to fetch all ecl tutorial  md files =============================
+  const tutorialResult = await graphql(`
+    query {
+      allFile(filter: { sourceInstanceName: { eq: "learnEcl" } }) {
+        edges {
+          node {
+            id
+            absolutePath
+            childMarkdownRemark {
+              frontmatter {
+                slug
+              }
+            }
+            name
+          }
+        }
+      }
+    }
+  `);
+
+  // Handle error
+  if (tutorialResult.errors) {
+    reporter.panicOnBuild("Error loading MDX result", tutorialResult.errors);
+  }
+
+  // Create tutorial page.
+  const posts = tutorialResult.data.allFile.edges;
+
+  // Sort with file name, the gatsby file system does not guarantee  order
+  posts.sort((a, b) => {
+    const numA = a.node.name;
+    const numB = b.node.name;
+
+    if (!isNaN(numA) && !isNaN(numB, 10)) {
+      return numA - numB;
+    }
+    return a.node.name.localeCompare(b.node.name);
+  });
+
+  const tutorialTemplate = path.resolve(`./src/templates/EclTutorialTemplate.js`);
+
+  // call `createPage` for each result
+  posts.forEach((item, index) => {
+    const node = item.node;
+
+    const prevSlug = index > 0 ? posts[index - 1].node.childMarkdownRemark.frontmatter.slug : null;
+    const nextSlug = index < posts.length - 1 ? posts[index + 1].node.childMarkdownRemark.frontmatter.slug : null;
 
     createPage({
-      path: slug,
-      // This will automatically resolve the template to a corresponding
-      // `layout` frontmatter in the Markdown.
-      //
-      // Feel free to set any `layout` as you'd like in the frontmatter, as
-      // long as the corresponding template file exists in src/templates.
-      // If no template is set, it will fall back to the default `page`
-      // template.
-      //
-      // Note that the template has to exist first, or else the build will fail.
-      component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),
-      context: {
-        // Data passed to context is available in page queries as GraphQL variables.
-        slug
-      }
+      path: `learn-ecl/${node.childMarkdownRemark.frontmatter.slug}`,
+      // Provide the path to the MDX content file so webpack can pick it up and transform it into JSX
+      component: `${tutorialTemplate}?__contentFilePath=${node.absolutePath}`,
+
+      context: { id: node.id, nextSlug, prevSlug },
     });
-
-    // URL redirect handler
-    // Adapted from reactjs/reactjs.org:
-    // https://github.com/reactjs/reactjs.org/blob/master/gatsby-node.js#L111
-    if (redirect) {
-      let toRedirect = JSON.parse(node.fields.redirect);
-      if (!Array.isArray(toRedirect)) {
-        toRedirect = [toRedirect];
-      }
-
-      toRedirect.forEach(fromPath => {
-        if (redirectToSlugMap[fromPath] != null) {
-          console.error(
-            `Duplicate redirect detected from "${fromPath}" to:\n` +
-              `* ${redirectToSlugMap[fromPath]}\n` +
-              `* ${slug}\n`
-          );
-        }
-
-        // A leading "/" is required for redirects to work,
-        // But multiple leading "/" will break redirects.
-        // For more context see https://github.com/reactjs/reactjs.org/pull/194
-        const toPath = slug.startsWith('/') ? slug : `/${slug}`;
-
-        redirectToSlugMap[fromPath] = slug;
-        createRedirect({
-          fromPath: `/${fromPath}`,
-          redirectInBrowser: true,
-          toPath
-        });
-      });
-    }
   });
 };

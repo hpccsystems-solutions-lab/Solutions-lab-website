@@ -1,0 +1,35 @@
+.header {
+  padding: 0 5px 5px 0;
+}
+
+.header__logo {
+  cursor: pointer;
+}
+
+.header__themeToggleBtn {
+  padding: 0px 10px;
+  font-size: 20px;
+}
+
+.header__themeToggleBtn__sun {
+  color: var(--primary-white);
+}
+
+.header__themeToggleBtn__moon:hover,
+.header__themeToggleBtn__sun:hover {
+  opacity: 0.6;
+}
+
+.nav-link {
+  font-weight: 700;
+  color: inherit;
+}
+
+.header__navLink__dark,
+.header__navLink__dark:hover {
+  color: var(--primary-white);
+}
+
+.header__toggle__dark {
+  background-color: var(--primary-white);
+}

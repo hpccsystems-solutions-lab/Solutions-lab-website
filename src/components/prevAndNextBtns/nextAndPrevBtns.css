@@ -1,0 +1,8 @@
+.nextAndPrevBtns {
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  width: 100%;
+}

@@ -1,0 +1,127 @@
+:root {
+  --primary-blue: #0077c8;
+  --primary-white: #ffffff;
+  --primary-dark: #111111;
+  --primary-gray: #808080;
+  --primary-light-gray: #d5d5d5;
+  --tiny: 12px;
+  --medium: 15px;
+  --border-color-dark: #ffffff26; /* Dark theme border color */
+  --border-color-light: #eef0f2; /* Light theme border color */
+  --background-color-dark: #111111;
+  --background-color-light: #ffffff;
+  --font-color-dark: #ffffff;
+  --font-color-light: #111111;
+  --md-screen-size: 900px;
+  --alternate-table-background-dark: #ffffff26;
+  --alternate-table-background-light: #eef0f2;
+}
+
+/* -------------------------------- */
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.darkTheme {
+  background-color: var(--background-color-dark);
+  color: var(--font-color-dark) !important;
+}
+
+.lightTheme {
+  background-color: var(--background-color-light);
+  color: var(--font-color-light);
+}
+
+.darkTheme * {
+  border-color: var(--border-color-dark) !important;
+}
+
+.lightTheme * {
+  border-color: var(--border-color-light) !important;
+}
+
+.darkTheme * > .eclTutorialNavigation__selectedItem,
+.darkTheme * > .eclTutorialNavigation__item:hover,
+.darkTheme * > .header__link:hover,
+.darkTheme * > .header__link_selected {
+  background-color: var(--alternate-table-background-dark);
+}
+
+.lightTheme * > .eclTutorialNavigation__selectedItem,
+.lightTheme * > .eclTutorialNavigation__item:hover,
+.lightTheme * > .header__link:hover,
+.lightTheme * > .header__link_selected {
+  background-color: var(--alternate-table-background-light);
+}
+
+/* ------------------------------------ */
+/* TODO - convert this to a component */
+.topic-container {
+  display: inline-block;
+  position: relative;
+}
+
+.topic-container .topic {
+  display: inline;
+}
+
+.topic-container::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ------------------------------------ */
+
+/* Stack header body and footer */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 5px;
+}
+
+.ant-btn-primary {
+  background-color: #0077c8;
+}
+
+.layout * {
+  border-radius: 0px !important;
+}
+
+/* page body takes as much space as it needs */
+.layout__body {
+  flex: 1;
+  margin-top: 55px;
+}
+
+.layout__footer {
+  flex-shrink: 0;
+  margin: 30px 0;
+}
+
+.header__container,
+.layout__container {
+  max-width: 1200px;
+}
