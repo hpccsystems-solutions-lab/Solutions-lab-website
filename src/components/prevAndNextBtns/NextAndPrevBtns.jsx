@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Divider } from "antd";
+import { Button } from "antd";
 import "./nextAndPrevBtns.css";
 import { navigate } from "gatsby";
 import { useTheme } from "../../context/themes";

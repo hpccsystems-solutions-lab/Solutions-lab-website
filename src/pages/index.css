@@ -20,6 +20,16 @@
   place-items: center;
 }
 
+.menuButton {
+  background: transparent;
+  color: white;
+  border: none;
+}
+.menuButtonLight {
+  background: transparent;
+  color: black;
+  border: none;
+}
 .homeSection1__second-actionBtn {
   width: fit-content;
 }
