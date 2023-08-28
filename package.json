@@ -20,6 +20,7 @@
     "@mdx-js/react": "^2.3.0",
     "antd": "^5.8.1",
     "bootstrap": "^5.3.1",
+    "decode-uri-component": "^0.2.1",
     "gatsby": "^5.11.0",
     "gatsby-plugin-google-gtag": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
@@ -33,12 +34,18 @@
     "gatsby-source-git": "^1.1.0",
     "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "http-cache-semantics": "^4.1.1",
+    "json5": "^1.0.2",
+    "loader-utils": "^3.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-horizontal-scrolling-menu": "^4.1.0",
     "react-icons": "^4.10.1",
     "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^1.0.0"
+    "remark-gfm": "^1.0.0",
+    "socket.io-parser": "^4.2.4",
+    "word-wrap": "^1.2.4",
+    "yaml": "^2.2.2"
   }
 }
