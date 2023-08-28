@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { BsMoonStars, BsFillSunFill } from "react-icons/bs";
@@ -20,7 +20,11 @@ const Header = () => {
   //JSX
   return (
     <>
-      <Navbar bg={darkMode ? "dark" : "light"} data-bs-theme={darkMode ? "dark" : "light"} fixed="top">
+      <Navbar
+        bg={darkMode ? "dark" : "light"}
+        data-bs-theme={darkMode ? "dark" : "light"}
+        fixed="top"
+      >
         <Container fluid className="header__container">
           <Navbar.Brand
             onClick={() => {
@@ -29,8 +33,22 @@ const Header = () => {
             }}
             className="header__logo"
           >
-            {!darkMode ? <StaticImage src="../../images/logo-light.png" alt="Logo" width={128} className="d-inline-block align-top" /> : null}
-            {darkMode ? <StaticImage src="../../images/logo-dark.png" alt="Logo" width={128} className="d-inline-block align-top" /> : null}
+            {!darkMode ? (
+              <StaticImage
+                src="../../images/logo-light.png"
+                alt="Logo"
+                width={128}
+                className="d-inline-block align-top"
+              />
+            ) : null}
+            {darkMode ? (
+              <StaticImage
+                src="../../images/logo-dark.png"
+                alt="Logo"
+                width={128}
+                className="d-inline-block align-top"
+              />
+            ) : null}
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link
@@ -38,7 +56,9 @@ const Header = () => {
                 navigate("/about");
                 setSelectedPage("about");
               }}
-              className={`header__link ${selectedPage == "about" ? "header__link_selected" : ""}`}
+              className={`header__link ${
+                selectedPage === "about" ? "header__link_selected" : ""
+              }`}
             >
               About
             </Nav.Link>
@@ -48,7 +68,9 @@ const Header = () => {
                 navigate("/projects");
                 setSelectedPage("projects");
               }}
-              className={`header__link ${selectedPage == "projects" ? "header__link_selected" : ""}`}
+              className={`header__link ${
+                selectedPage === "projects" ? "header__link_selected" : ""
+              }`}
             >
               Projects
             </Nav.Link>
@@ -65,9 +87,15 @@ const Header = () => {
           </Nav.Link>
           <Nav.Link className="header__themeToggleBtn">
             {darkMode ? (
-              <BsFillSunFill onClick={toggleDarkMode} className="header__themeToggleBtn__sun" />
+              <BsFillSunFill
+                onClick={toggleDarkMode}
+                className="header__themeToggleBtn__sun"
+              />
             ) : (
-              <BsMoonStars onClick={toggleDarkMode} className="header__themeToggleBtn__moon" />
+              <BsMoonStars
+                onClick={toggleDarkMode}
+                className="header__themeToggleBtn__moon"
+              />
             )}
           </Nav.Link>
         </Container>

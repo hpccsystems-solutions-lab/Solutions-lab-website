@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { CopyOutlined } from "@ant-design/icons";
-import { okaidia, github } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  oneLight,
+  oneDark,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Button } from "antd";
 
 import "./eclCodeBlock.css";
@@ -35,7 +38,11 @@ const openEclEditor = ({ eclCode, header = "", files }) => {
 
   document.body.appendChild(form);
 
-  window.open("", "ecl_web_editor", "width=1400,height=1000,left=100,top=100,resizable=yes,scrollbars=yes");
+  window.open(
+    "",
+    "ecl_web_editor",
+    "width=1400,height=1000,left=100,top=100,resizable=yes,scrollbars=yes"
+  );
   form.target = "ecl_web_editor";
   form.submit();
 
@@ -53,7 +60,7 @@ function EclCode(props) {
       await navigator.clipboard.writeText(code);
       setCopied(true);
     } catch (error) {
-      console.error("Failed to copy code: ", error);
+      console.error("Failed to copy code: ", error, copied);
     }
   };
 
@@ -79,7 +86,11 @@ function EclCode(props) {
         <CopyOutlined onClick={handleCopyClick} />
       </div>
       <div className="eclCodeBlock__codeBlock">
-        <SyntaxHighlighter language="java" style={darkMode ? okaidia : github} id={`${id}`}>
+        <SyntaxHighlighter
+          language="java"
+          style={darkMode ? oneDark : oneLight}
+          id={`${id}`}
+        >
           {code}
         </SyntaxHighlighter>
       </div>
