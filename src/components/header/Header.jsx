@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import { BsMoonStars, BsFillSunFill } from "react-icons/bs";
 import { StaticImage } from "gatsby-plugin-image";
 import { navigate } from "gatsby";
-import { Button } from "antd";
 
 import { useTheme } from "../../context/themes";
 import "./header.css";
@@ -74,17 +73,19 @@ const Header = () => {
             >
               Projects
             </Nav.Link>
-          </Nav>
-          <Nav.Link>
-            <Button
-              type="primary"
+            <Nav.Link
+              activeClassName="test"
               onClick={() => {
-                navigate("/learn-ecl/introduction/");
+                navigate("/learn-ecl/introduction");
+                setSelectedPage("learn-ecl");
               }}
+              className={`header__link ${
+                selectedPage === "learn-ecl" ? "header__link_selected" : ""
+              }`}
             >
               Learn ECL
-            </Button>
-          </Nav.Link>
+            </Nav.Link>
+          </Nav>
           <Nav.Link className="header__themeToggleBtn">
             {darkMode ? (
               <BsFillSunFill
