@@ -64,7 +64,7 @@ const config = {
       resolve: `gatsby-source-git`,
       options: {
         name: `database`,
-        remote: `https://github.com/ydahal1/solutions-lab-data`, // Configure with real repo
+        remote: `https://github.com/hpccsystems-solutions-lab/Solutions-lab-website-content`, // Configure with real repo
         branch: `main`,
         // patterns: `/**/*.md`,
         local: `${__dirname}/database`,
