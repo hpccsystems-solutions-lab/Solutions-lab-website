@@ -34,6 +34,19 @@
   width: fit-content;
 }
 
+.react-horizontal-scrolling-menu--wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.react-horizontal-scrolling-menu--inner-wrapper {
+  display: flex;
+  overflow-y: hidden;
+  width: fit-content;
+}
+
 @media (max-width: 900px) {
   .homeSection1 {
     flex-direction: column;
