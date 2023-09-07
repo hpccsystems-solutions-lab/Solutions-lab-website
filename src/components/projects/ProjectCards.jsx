@@ -60,7 +60,8 @@ function ProjectCards() {
           <h1 className="topic"> Projects</h1>
         </div>
       </div>
-      <ScrollMenu
+      {/* <ScrollMenu */}
+      <div
         // LeftArrow={LeftArrow}
         // RightArrow={RightArrow}
         className="projectCards__projects"
@@ -74,7 +75,8 @@ function ProjectCards() {
             />
           );
         })}
-      </ScrollMenu>
+        {/* </ScrollMenu> */}
+      </div>
     </div>
   );
 }

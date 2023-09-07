@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate } from "gatsby";
-// import { Input } from "antd";
+import { Input, Modal, Result } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 import "./eclTutorialNav.css";
@@ -11,12 +11,26 @@ import { useTheme } from "../../context/themes";
 
 function EclTutorialNavigation() {
   const { darkMode, selectedTutorial, setSelectedTutorial } = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const inputRef = useRef(null);
 
   // On navigation item clicked
   const handleNavigationLinkClick = (slug) => {
     setSelectedTutorial(slug);
     navigate(slug);
   };
+
+  // when search is clicked
+  const handleSearchIntention = () => {
+    setIsModalOpen(true);
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isModalOpen]);
 
   // Get social Links
   const result = useStaticQuery(graphql`
@@ -59,7 +73,10 @@ function EclTutorialNavigation() {
 
   return (
     <div className="eclTutorialNavigation">
-      <div className="eclTutorialNavigation__search">
+      <div
+        className="eclTutorialNavigation__search"
+        onClick={handleSearchIntention}
+      >
         <div className="eclTutorialNavigation__search_placeholder">
           Search docs
         </div>
@@ -70,10 +87,13 @@ function EclTutorialNavigation() {
           <ul
             key={index}
             className={`eclTutorialNavigation__item ${
-              selectedTutorial === item.value
+              selectedTutorial == item.value
                 ? "eclTutorialNavigation__selectedItem"
                 : null
             }`}
+            onClick={() => {
+              handleNavigationLinkClick(item.value);
+            }}
           >
             <button
               className={darkMode ? "menuButton" : "menuButtonLight"}
@@ -86,6 +106,24 @@ function EclTutorialNavigation() {
           </ul>
         );
       })}
+      <Modal
+        className="searchModal"
+        open={isModalOpen}
+        closable={false}
+        footer={null}
+        maskClosable={true}
+        mask={true}
+        onCancel={() => {
+          setIsModalOpen(false);
+        }}
+      >
+        <div className="searchModal__input">
+          <Input suffix={<SearchOutlined />} ref={inputRef} />
+        </div>
+        <div style={{ textAlign: "center", marginTop: "30px", color: "gray" }}>
+          This feature is currently under development{" "}
+        </div>
+      </Modal>
     </div>
   );
 }

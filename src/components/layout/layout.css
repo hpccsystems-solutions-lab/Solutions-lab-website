@@ -12,7 +12,6 @@
   --background-color-light: #ffffff;
   --font-color-dark: #ffffff;
   --font-color-light: #111111;
-  --md-screen-size: 900px;
   --alternate-table-background-dark: #ffffff26;
   --alternate-table-background-light: #eef0f2;
 }
@@ -38,7 +37,8 @@ h4 {
   font-weight: 500;
 }
 
-.darkTheme {
+.darkTheme,
+.darkTheme * ß {
   background-color: var(--background-color-dark);
   color: var(--font-color-dark) !important;
 }
@@ -59,8 +59,13 @@ h4 {
 .darkTheme * > .eclTutorialNavigation__selectedItem,
 .darkTheme * > .eclTutorialNavigation__item:hover,
 .darkTheme * > .header__link:hover,
-.darkTheme * > .header__link_selected {
-  background-color: var(--alternate-table-background-dark);
+.darkTheme * > .header__link_selected,
+.darkTheme * > .header__eclNavigation_drawer {
+  background-color: var(--alternate-table-background-dark) !important;
+}
+
+.darkTheme * > .header__eclNavigation_drawer {
+  background-color: red !important;
 }
 
 .lightTheme * > .eclTutorialNavigation__selectedItem,
@@ -71,6 +76,9 @@ h4 {
 }
 
 /* ------------------------------------ */
+
+/* ------------------------------------ */
+
 /* TODO - convert this to a component */
 .topic-container {
   display: inline-block;

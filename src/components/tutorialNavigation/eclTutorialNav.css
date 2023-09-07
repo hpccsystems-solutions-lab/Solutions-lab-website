@@ -12,7 +12,23 @@
   margin: 0 5px 10px 0;
   border: 1px solid var(--primary-gray) !important;
   place-items: center;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.searchModal > * {
+  border-radius: 0px !important;
+  max-height: 350px;
+  overflow: auto;
+}
+
+.searchModal__input * {
+  border-radius: 0px;
+}
+
+.eclTutorialNavigation__search:hover {
+  opacity: 0.7;
 }
 
 .eclTutorialNavigation__search_placeholder {

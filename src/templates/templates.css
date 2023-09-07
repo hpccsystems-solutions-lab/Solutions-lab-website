@@ -47,3 +47,14 @@ th {
   text-align: left;
   padding: 8px;
 }
+
+/* @media (max-width: 900px) {
+  .eclTutorialTemplate__navigation {
+    display: none;
+  }
+
+  .eclTutorialTemplate__content {
+    width: 100%;
+    margin: auto;
+  }
+} */

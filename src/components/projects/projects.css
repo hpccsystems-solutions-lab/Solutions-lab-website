@@ -19,6 +19,13 @@
   position: relative;
 }
 
+.projectCards__projects {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .projectCards__rightArrow,
 .projectCards__leftArrow {
   width: 50px;

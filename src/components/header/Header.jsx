@@ -2,11 +2,14 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { BsMoonStars, BsFillSunFill } from "react-icons/bs";
+import { BiMenu } from "react-icons/bi";
 import { StaticImage } from "gatsby-plugin-image";
 import { navigate } from "gatsby";
+import { Button, Drawer } from "antd";
 
 import { useTheme } from "../../context/themes";
 import "./header.css";
+import EclTutorialNavigation from "../tutorialNavigation/EclTutorialNavigation";
 
 const Header = () => {
   const { darkMode, toggleTheme, selectedPage, setSelectedPage } = useTheme();
@@ -25,6 +28,11 @@ const Header = () => {
         fixed="top"
       >
         <Container fluid className="header__container">
+          {/* <Nav.Link className="header__themeToggleBtn">
+            <div className="header__mobileMenu">
+              <BiMenu />
+            </div>
+          </Nav.Link> */}
           <Navbar.Brand
             onClick={() => {
               setSelectedPage(null);
@@ -101,6 +109,19 @@ const Header = () => {
           </Nav.Link>
         </Container>
       </Navbar>
+
+      {/* <Drawer
+        open={true}
+        placement="left"
+        width={200}
+        className={
+          darkMode
+            ? "header__eclNavigation_drawer_dark"
+            : "header__eclNavigation_drawer_light"
+        }
+      >
+        <EclTutorialNavigation />
+      </Drawer> */}
     </>
   );
 };

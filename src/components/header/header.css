@@ -33,3 +33,24 @@
 .header__toggle__dark {
   background-color: var(--primary-white);
 }
+
+.header__mobileMenu {
+  display: none;
+  font-size: xx-large;
+}
+
+@media (max-width: 900px) {
+  .header__mobileMenu {
+    display: block;
+  }
+}
+
+.header__eclNavigation_drawer_light {
+  background-color: var(--background-color-light) !important;
+  color: var(--font-color-light);
+}
+
+.header__eclNavigation_drawer_dark {
+  background-color: var(--background-color-dark) !important;
+  color: var(--font-color-dark);
+}
