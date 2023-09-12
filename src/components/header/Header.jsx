@@ -2,14 +2,14 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { BsMoonStars, BsFillSunFill } from "react-icons/bs";
-import { BiMenu } from "react-icons/bi";
+// import { BiMenu } from "react-icons/bi";
 import { StaticImage } from "gatsby-plugin-image";
 import { navigate } from "gatsby";
-import { Button, Drawer } from "antd";
+// import { Button, Drawer } from "antd";
 
 import { useTheme } from "../../context/themes";
 import "./header.css";
-import EclTutorialNavigation from "../tutorialNavigation/EclTutorialNavigation";
+// import EclTutorialNavigation from "../tutorialNavigation/EclTutorialNavigation";
 
 const Header = () => {
   const { darkMode, toggleTheme, selectedPage, setSelectedPage } = useTheme();
