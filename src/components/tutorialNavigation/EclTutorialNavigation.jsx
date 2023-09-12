@@ -57,7 +57,7 @@ function EclTutorialNavigation() {
     navItems.push({ label, value });
   });
 
-  // scroll to currently active nav link
+  // scroll to currently active page
   useEffect(() => {
     const anchor = document.querySelector(
       ".eclTutorialNavigation__selectedItem"
