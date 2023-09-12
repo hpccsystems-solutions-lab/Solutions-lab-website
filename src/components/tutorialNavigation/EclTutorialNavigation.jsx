@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate } from "gatsby";
 // import { Input } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+// import { SearchOutlined } from "@ant-design/icons";
 
 import "./eclTutorialNav.css";
 import { useTheme } from "../../context/themes";
@@ -57,14 +57,24 @@ function EclTutorialNavigation() {
     navItems.push({ label, value });
   });
 
+  // scroll to currently active nav link
+  useEffect(() => {
+    const anchor = document.querySelector(
+      ".eclTutorialNavigation__selectedItem"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, []);
+
   return (
     <div className="eclTutorialNavigation">
-      <div className="eclTutorialNavigation__search">
+      {/* <div className="eclTutorialNavigation__search">
         <div className="eclTutorialNavigation__search_placeholder">
           Search docs
         </div>
         <SearchOutlined />
-      </div>
+      </div> */}
       {navItems.map((item, index) => {
         return (
           <ul

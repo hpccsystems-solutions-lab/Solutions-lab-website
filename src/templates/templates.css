@@ -4,9 +4,11 @@
 
 .eclTutorialTemplate__navigation {
   position: fixed;
-  height: 98vh;
+  height: 90vh;
   overflow: auto;
   width: 160px;
+  margin-top: 1rem;
+  padding-bottom: 0;
 }
 
 .eclTutorialTemplate__content {

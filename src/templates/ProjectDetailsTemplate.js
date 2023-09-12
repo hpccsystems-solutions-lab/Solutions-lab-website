@@ -2,17 +2,17 @@ import React from "react";
 import Layout from "../components/layout/Layout";
 import "./templates.css";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+// import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 function ProjectDetailsTemplate({ data, pageContext }) {
-  const imageData = data.allFile.edges[0].node;
+  // const imageData = data.allFile.edges[0].node;
 
   return (
     <Layout>
       <>
-        <div>
+        {/* <div>
           <GatsbyImage image={getImage(imageData)} alt={pageContext.imgName} />
-        </div>
+        </div> */}
         <div className="projectDetailsTemplate__projectTitle">
           <h1>{pageContext.projectTitle}</h1>
         </div>

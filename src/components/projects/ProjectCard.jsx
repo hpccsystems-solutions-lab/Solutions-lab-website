@@ -10,18 +10,19 @@ function ProjectCard({ project }) {
     shortDescription.length > 250
       ? shortDescription.substring(0, 500)
       : shortDescription;
-  shortDescription = shortDescription + " ...";
+
   return (
     <div className="projectCard">
       <div className="projectCard__title">
         <h2>{title}</h2>
       </div>
-
-      <div>{shortDescription}</div>
-      <div className="projectCard__learnMoreBtn">
-        <Link to={`/projects/${link}`}>
-          <Button type="primary">Learn More</Button>
-        </Link>
+      <div className="projectCard_Inner">
+        <div>{shortDescription}</div>
+        <div className="projectCard__learnMoreBtn">
+          <Link to={`/projects/${link}`}>
+            <Button type="primary">Learn More</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
