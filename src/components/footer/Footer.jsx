@@ -1,6 +1,10 @@
 import React from "react";
 import "./footer.css";
-import { GithubOutlined, LinkedinOutlined, TwitterOutlined } from "@ant-design/icons";
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  InstagramOutlined,
+} from "@ant-design/icons";
 import { useStaticQuery, graphql } from "gatsby";
 
 const currentYear = new Date().getFullYear();
@@ -32,14 +36,24 @@ function Footer() {
         <a href={socialLinks.GitHub} target="_blank" rel="noopener noreferrer">
           <GithubOutlined />
         </a>
-        <a href={socialLinks.LinkedIn} target="_blank" rel="noopener noreferrer">
+        <a
+          href={socialLinks.LinkedIn}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <LinkedinOutlined />
         </a>
-        <a href={socialLinks.Twitter} target="_blank" rel="noopener noreferrer">
-          <TwitterOutlined />
+        <a
+          href={socialLinks.Instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <InstagramOutlined />
         </a>
       </div>
-      <div className="footer__copyrightInfo">Copyright &copy;&nbsp;{currentYear} HPCCSystems. All rights reserved.</div>
+      <div className="footer__copyrightInfo">
+        Copyright &copy;&nbsp;{currentYear} HPCCSystems. All rights reserved.
+      </div>
     </div>
   );
 }

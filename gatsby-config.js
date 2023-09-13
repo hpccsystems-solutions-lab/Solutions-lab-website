@@ -19,8 +19,8 @@ const config = {
         url: "mailto:hpcc-solutions-lab@lexisnexisrisk.com",
       },
       {
-        name: "Twitter",
-        url: "https://twitter.com/hpccsystems",
+        name: "Instagram",
+        url: "https://www.instagram.com/hpcc_systems",
       },
       {
         name: "GitHub",
