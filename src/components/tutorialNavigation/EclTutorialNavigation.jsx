@@ -63,7 +63,7 @@ function EclTutorialNavigation() {
       ".eclTutorialNavigation__selectedItem"
     );
     if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+      anchor.scrollIntoView({ behavior: "auto", block: "center" });
     }
   }, []);
 
