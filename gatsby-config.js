@@ -57,7 +57,7 @@ const config = {
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingIds: ["G-KX6QXZYE0J"], // TODO move this to secrets
+        trackingIds: ["G-4SSWFC1PB0"], // TODO move this to secrets
       },
     },
     {
