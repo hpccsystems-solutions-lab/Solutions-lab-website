@@ -93,7 +93,7 @@ const config = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "project-md-files",
-        path: `${__dirname}/database/projects`,
+        path: `${__dirname}/database/Solutions`,
       },
       __key: "project-md-files",
     },

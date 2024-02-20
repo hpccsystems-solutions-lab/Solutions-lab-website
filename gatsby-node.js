@@ -37,10 +37,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   //Create project pages
   edges.forEach((edge) => {
-    const { gitHubRepo, link, title, imageName } = edge.node.childMarkdownRemark.frontmatter;
+    const { gitHubRepo, link, title, imageName } =
+      edge.node.childMarkdownRemark.frontmatter;
     const html = edge.node.childMarkdownRemark.html;
     createPage({
-      path: `/projects/${link}`,
+      path: `/solutions/${link}`,
       component: template,
       context: {
         itemId: link,
@@ -91,14 +92,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return a.node.name.localeCompare(b.node.name);
   });
 
-  const tutorialTemplate = path.resolve(`./src/templates/EclTutorialTemplate.js`);
+  const tutorialTemplate = path.resolve(
+    `./src/templates/EclTutorialTemplate.js`
+  );
 
   // call `createPage` for each result
   posts.forEach((item, index) => {
     const node = item.node;
 
-    const prevSlug = index > 0 ? posts[index - 1].node.childMarkdownRemark.frontmatter.slug : null;
-    const nextSlug = index < posts.length - 1 ? posts[index + 1].node.childMarkdownRemark.frontmatter.slug : null;
+    const prevSlug =
+      index > 0
+        ? posts[index - 1].node.childMarkdownRemark.frontmatter.slug
+        : null;
+    const nextSlug =
+      index < posts.length - 1
+        ? posts[index + 1].node.childMarkdownRemark.frontmatter.slug
+        : null;
 
     createPage({
       path: `learn-ecl/${node.childMarkdownRemark.frontmatter.slug}`,

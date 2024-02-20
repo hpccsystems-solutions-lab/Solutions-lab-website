@@ -72,14 +72,14 @@ const Header = () => {
             <Nav.Link
               activeClassName="test"
               onClick={() => {
-                navigate("/projects");
-                setSelectedPage("projects");
+                navigate("/solutions");
+                setSelectedPage("solutions");
               }}
               className={`header__link ${
-                selectedPage === "projects" ? "header__link_selected" : ""
+                selectedPage === "solutions" ? "header__link_selected" : ""
               }`}
             >
-              Projects
+              Solutions
             </Nav.Link>
             <Nav.Link
               activeClassName="test"

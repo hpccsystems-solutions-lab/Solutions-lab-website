@@ -19,7 +19,7 @@ function ProjectCard({ project }) {
       <div className="projectCard_Inner">
         <div>{shortDescription}</div>
         <div className="projectCard__learnMoreBtn">
-          <Link to={`/projects/${link}`}>
+          <Link to={`/solutions/${link}`}>
             <Button type="primary">Learn More</Button>
           </Link>
         </div>
