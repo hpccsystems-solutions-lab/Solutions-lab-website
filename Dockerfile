@@ -5,7 +5,7 @@ FROM node:18-alpine
 RUN apk add --no-cache git
 
 # Set working directory
-WORKDIR /Solutions-lab-website
+WORKDIR /learn-ecl
 
 # Copy package files
 COPY package.json ./ 
@@ -24,4 +24,4 @@ RUN npm run build
 EXPOSE 8000
 
 # Start the app
-CMD ["npm", "start"]
+CMD ["npm", "serve"]
