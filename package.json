@@ -21,7 +21,7 @@
     "antd": "^5.8.1",
     "axios": "^1.18.1",
     "bootstrap": "^5.3.1",
-    "decode-uri-component": "^0.2.1",
+    "decode-uri-component": "^0.5.0",
     "gatsby": "^5.13.6",
     "gatsby-plugin-google-gtag": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
